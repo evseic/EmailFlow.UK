@@ -2,7 +2,7 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const fmt = n => '€' + Math.round(n).toLocaleString('en-US');
+const fmt = n => '£' + Math.round(n).toLocaleString('en-GB');
 
 /* ════════ live inbox simulation ════════ */
 const FLOW_ICONS = {
@@ -144,7 +144,7 @@ const TIMELINE_STEPS = [
   }
 ];
 
-let currentTimelineStep = 4;
+let currentTimelineStep = 0;
 
 function renderTimelineStep(idx) {
   currentTimelineStep = idx;
@@ -200,7 +200,7 @@ if (tNext) {
   });
 }
 
-renderTimelineStep(4);
+renderTimelineStep(0);
 
 /* ════════ count-up stats ════════ */
 function countUp(el) {
@@ -230,10 +230,10 @@ $$('.reveal').forEach(el => rObs.observe(el));
 
 /* ════════ quiz funnel ════════ */
 const REVENUE_Q = 'Monthly revenue';
-const DQ_OPTION = 'Under €10,000';
+const DQ_OPTION = 'Under £10,000';
 
 const QUESTIONS = [
-  { title: REVENUE_Q, sub: 'Roughly what is your average monthly revenue?', opts: [DQ_OPTION, '€10,000 – 20,000', '€20,000 – 50,000', '€50,000+'] },
+  { title: REVENUE_Q, sub: 'Roughly what is your average monthly revenue?', opts: [DQ_OPTION, '£10,000 – 20,000', '£20,000 – 50,000', '£50,000+'] },
   { title: 'Email marketing maturity', sub: 'How are you using email marketing in your business right now?', opts: ['We send campaigns and automated emails are running', 'We occasionally send a newsletter / promo, but no real automations', 'We have a list but barely use it', 'We are not doing email marketing yet'] },
   { title: 'List size', sub: 'Roughly how big is your email list?', opts: ['1-500', '500-5,000', '5,000-20,000', '20,000+'] },
   { title: 'Biggest challenge', sub: 'What is your biggest challenge with email marketing right now?', opts: ['Not enough time / resources', 'Low engagement (opens, clicks)', 'No automated flows', 'No clear strategy (what to send, and to whom)'] }
@@ -289,7 +289,7 @@ function renderDQ() {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 16c1-1.5 2.4-2.2 4-2.2s3 .7 4 2.2"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/></svg>
     </div>
     <div class="q-title">Thanks for your interest!</div>
-    <p class="q-sub" style="max-width:46ch;margin:10px auto 6px">Right now we only work with businesses whose monthly revenue exceeds €10,000. At your stage, an investment in email marketing may simply not pay off yet.</p>
+    <p class="q-sub" style="max-width:46ch;margin:10px auto 6px">Right now we only work with businesses whose monthly revenue exceeds £10,000. At your stage, an investment in email marketing may simply not pay off yet.</p>
     <p style="color:var(--ink-40);font-size:13.5px;font-weight:500;max-width:46ch;margin:0 auto 22px">Keep growing — and once you reach that milestone, come back. We will help you turn your list into revenue.</p>
     <button class="btn btn-ghost" id="qRestart">Start over</button></div>`;
   $('#qRestart').addEventListener('click', () => { answers = {}; currentQ = 0; renderQuiz(); });
@@ -401,7 +401,7 @@ if (shell) renderQuiz();
 const FAQS = [
   { q: 'How quickly will I see results?', a: 'The first results show up within 2-4 weeks — once the core automated flows go live (welcome series, abandoned cart, post-purchase). A stable +20-30% revenue lift from the email channel is typically reached within 60-90 days, as campaigns and segmentation gain momentum.' },
   { q: 'Which platforms do you work with?', a: 'Omnisend & Klaviyo' },
-  { q: 'Does this work for smaller businesses or only big ones?', a: 'Monthly revenue among our clients ranges from €10,000 to €500,000+. For smaller stores, email often delivers the highest ROI — the fundamentals just need to be set up properly. We only turn away businesses whose monthly revenue is still under €10,000 — at that stage, the investment in email simply would not pay off.' },
+  { q: 'Does this work for smaller businesses or only big ones?', a: 'Monthly revenue among our clients ranges from £10,000 to £500,000+. For smaller stores, email often delivers the highest ROI — the fundamentals just need to be set up properly. We only turn away businesses whose monthly revenue is still under £10,000 — at that stage, the investment in email simply would not pay off.' },
   { q: 'Do I need a big email list already?', a: 'No. If your list is small — or you do not have one at all — the first step is signup forms and pop-ups. Within 30-60 days the list typically grows 3-5x. We work with everything from zero-contact lists to 50,000+ contact databases.' },
   { q: 'What do I get for the service?', a: 'Full management of your email channel: audit, strategy, 5+ automated flows built, regular campaigns (8 per month), copywriting, design, A/B testing, segmentation, deliverability monitoring and reporting. No extra invoices — everything is included.' },
   { q: 'Is this only for online stores?', a: 'E-commerce is our core focus, but we also work successfully with service businesses (agencies, consulting, courses, B2B SaaS). Only the strategic emphasis differs — where an online store automates purchase flows, a service business uses email for lead nurturing and client retention.' },
