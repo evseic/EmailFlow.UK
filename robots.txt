@@ -27,5 +27,5 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://emailflow.uk/sitemap.xml
-LLMstxt: https://emailflow.uk/llms.txt
+Sitemap: https://www.emailflow.uk/sitemap.xml
+LLMstxt: https://www.emailflow.uk/llms.txt

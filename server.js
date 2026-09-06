@@ -17,6 +17,12 @@ const MIME_TYPES = {
 
 http.createServer((req, res) => {
   let reqUrl = req.url.split('?')[0];
+  if (reqUrl.endsWith('/index.html') || reqUrl === '/index.html') {
+    const cleanUrl = reqUrl.replace(/index\.html$/, '') || '/';
+    res.writeHead(301, { 'Location': cleanUrl });
+    res.end();
+    return;
+  }
   let filePath = path.join(PUBLIC_DIR, reqUrl === '/' ? 'index.html' : reqUrl);
 
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {

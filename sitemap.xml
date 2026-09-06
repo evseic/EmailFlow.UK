@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Primary Pages -->
   <url>
-    <loc>https://emailflow.uk/</loc>
+    <loc>https://www.emailflow.uk/</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/</loc>
+    <loc>https://www.emailflow.uk/blog/</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/case-studies/</loc>
+    <loc>https://www.emailflow.uk/case-studies/</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -22,67 +22,67 @@
 
   <!-- Blog Articles -->
   <url>
-    <loc>https://emailflow.uk/blog/email-sending-frequency/</loc>
+    <loc>https://www.emailflow.uk/blog/email-sending-frequency/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/email-marketing-benchmarks/</loc>
+    <loc>https://www.emailflow.uk/blog/email-marketing-benchmarks/</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/email-popup-forms/</loc>
+    <loc>https://www.emailflow.uk/blog/email-popup-forms/</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/winback-email-sequence/</loc>
+    <loc>https://www.emailflow.uk/blog/winback-email-sequence/</loc>
     <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/post-purchase-emails/</loc>
+    <loc>https://www.emailflow.uk/blog/post-purchase-emails/</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/why-emails-go-to-spam/</loc>
+    <loc>https://www.emailflow.uk/blog/why-emails-go-to-spam/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/ecommerce-email-flows-guide/</loc>
+    <loc>https://www.emailflow.uk/blog/ecommerce-email-flows-guide/</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/omnisend-vs-klaviyo-vs-mailerlite/</loc>
+    <loc>https://www.emailflow.uk/blog/omnisend-vs-klaviyo-vs-mailerlite/</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/email-marketing-pricing/</loc>
+    <loc>https://www.emailflow.uk/blog/email-marketing-pricing/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/welcome-email-series/</loc>
+    <loc>https://www.emailflow.uk/blog/welcome-email-series/</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/blog/abandoned-cart-emails/</loc>
+    <loc>https://www.emailflow.uk/blog/abandoned-cart-emails/</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -90,25 +90,25 @@
 
   <!-- Case Studies -->
   <url>
-    <loc>https://emailflow.uk/case-studies/fashion-store/</loc>
+    <loc>https://www.emailflow.uk/case-studies/fashion-store/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/case-studies/from-zero-to-25-percent/</loc>
+    <loc>https://www.emailflow.uk/case-studies/from-zero-to-25-percent/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/case-studies/holiday-email-campaigns/</loc>
+    <loc>https://www.emailflow.uk/case-studies/holiday-email-campaigns/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://emailflow.uk/case-studies/supplements-store/</loc>
+    <loc>https://www.emailflow.uk/case-studies/supplements-store/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

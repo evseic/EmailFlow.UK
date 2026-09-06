@@ -77,7 +77,7 @@ function calc() {
   if (!range) return;
   const v = +range.value;
   if ($('#calcRev')) $('#calcRev').textContent = fmt(v);
-  if ($('#calcMo')) $('#calcMo').textContent = fmt(v * .2) + '–' + fmt(v * .3).replace('€', '');
+  if ($('#calcMo')) $('#calcMo').textContent = fmt(v * .2) + '–' + fmt(v * .3).replace('£', '');
   if ($('#calcYr')) $('#calcYr').textContent = fmt(v * .2 * 12) + '+';
 }
 if (range) {
@@ -468,7 +468,7 @@ const calcCta = $('#calcCta');
 if (calcCta && range) {
   calcCta.addEventListener('click', () => {
     const v = +range.value;
-    const bucket = v > 50000 ? '€50,000+' : (v > 20000 ? '€20,000 – 50,000' : '€10,000 – 20,000');
+    const bucket = v > 50000 ? '£50,000+' : (v > 20000 ? '£20,000 – 50,000' : '£10,000 – 20,000');
     answers[REVENUE_Q] = bucket;
     currentQ = 1;
     renderQuiz();
