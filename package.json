@@ -2,8 +2,5 @@
   "name": "emailflow-uk",
   "version": "1.0.0",
   "private": true,
-  "description": "EmailFlow - The inbox that earns.",
-  "scripts": {
-    "build": "echo 'Static build complete'"
-  }
+  "description": "EmailFlow - The inbox that earns."
 }
