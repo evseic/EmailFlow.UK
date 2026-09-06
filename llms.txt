@@ -3,6 +3,7 @@
 > EmailFlow is a UK-based e-commerce email marketing agency specializing in Klaviyo, Omnisend, and automated retention flows. We help online stores generate 20–30%+ of total store revenue from email channels within 7 to 60 days.
 
 ## Core Agency Services
+- **Pricing**: £800/month all-inclusive management (no hidden fees or extra invoices).
 - **Automated Retention Flows**: Custom building of 7 core e-commerce email flows (Welcome Series, Abandoned Cart, Abandoned Checkout, Browse Abandonment, Site Abandonment, Post-Purchase, and Win-Back).
 - **Email Deliverability Engineering**: Full SPF, DKIM, DMARC setup, inbox placement, sender reputation management, and Gmail/Yahoo compliance.
 - **Weekly Campaign Management**: Copywriting, custom responsive email design, list segmentation, and A/B testing (3–4 campaigns/week).
