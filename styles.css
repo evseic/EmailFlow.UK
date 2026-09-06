@@ -63,9 +63,14 @@ a[x-apple-data-detectors] {
 
 button {
   font-family: inherit;
+  font-size: inherit;
+  color: inherit;
   cursor: pointer;
   border: none;
   background: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .wrap {
@@ -1101,30 +1106,33 @@ input[type=range]::-moz-range-thumb {
 .t-node {
   position: relative;
   z-index: 2;
-  width: 42px;
+  min-width: 42px;
   height: 42px;
-  border-radius: 50%;
+  padding: 0 8px;
+  border-radius: 999px;
   border: 2.5px solid #35BAA5;
   background: #fff;
   color: #16695F;
   font-family: var(--disp);
   font-weight: 700;
   font-size: 14px;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .t-node:hover {
-  transform: scale(1.12);
+  transform: scale(1.08);
   background: #EAF7F4;
 }
 
 .t-node.active {
   background: #35BAA5;
   color: #fff;
-  transform: scale(1.15);
+  transform: scale(1.1);
   box-shadow: 0 6px 18px rgba(53, 186, 165, 0.45);
 }
 
@@ -1400,17 +1408,22 @@ input[type=range]::-moz-range-thumb {
   padding: 16px 18px;
   font-size: 15px;
   font-weight: 600;
+  color: var(--ink);
   background: #fff;
-  transition: .18s;
+  transition: all .18s ease;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  width: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.q-opt:hover {
+.q-opt:hover, .q-opt:focus, .q-opt:active {
   border-color: var(--teal);
   background: var(--mint-soft);
+  color: var(--teal-deep);
   transform: translateX(3px);
 }
 
@@ -1418,11 +1431,15 @@ input[type=range]::-moz-range-thumb {
   width: 18px;
   height: 18px;
   color: var(--teal);
-  opacity: 0;
-  transition: .18s;
+  opacity: .5;
+  transition: all .18s ease;
+  flex-shrink: 0;
 }
 
-.q-opt:hover svg { opacity: 1; }
+.q-opt:hover svg, .q-opt:focus svg, .q-opt:active svg {
+  opacity: 1;
+  transform: translateX(3px);
+}
 .q-back { margin-top: 22px; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-40); font-weight: 500; border: none; background: none; cursor: pointer; }
 .q-back:hover { color: var(--ink); }
 
@@ -1494,9 +1511,15 @@ input[type=range]::-moz-range-thumb {
   font-weight: 700;
   font-size: 16.5px;
   letter-spacing: -.01em;
+  color: var(--ink);
   border: none;
   background: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq-q:hover {
+  color: var(--teal);
 }
 
 .faq-q .pl {
@@ -1715,9 +1738,22 @@ footer { border-top: 1px solid var(--line); padding: 60px 0 40px; background: #f
   .dash-body { grid-template-columns: 1fr; gap: 24px; }
   .dash-left-stats { grid-template-columns: repeat(2, 1fr); }
 
-  .t-nodes-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 8px 4px 16px; margin: 0 -10px; }
-  .t-nodes { width: max-content; min-width: 100%; justify-content: flex-start; gap: 12px; }
-  .t-node { flex-shrink: 0; min-width: 100px; }
+  .timeline-node-bar {
+    max-width: 100%;
+    margin-bottom: 28px;
+    padding: 0 8px;
+  }
+  .timeline-line {
+    left: 16px;
+    right: 16px;
+  }
+  .t-node {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 6px;
+    font-size: 13px;
+    border-width: 2px;
+  }
 
   .blog-hero { padding: 36px 0 24px; margin-bottom: 30px; }
   .blog-hero h1 { font-size: 32px; }
@@ -1733,6 +1769,44 @@ footer { border-top: 1px solid var(--line); padding: 60px 0 40px; background: #f
   .dash-left-stats { grid-template-columns: 1fr; }
   .chart-svg-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .chart-svg-wrap svg { min-width: 480px; }
+
+  .timeline-node-bar {
+    margin-bottom: 24px;
+    padding: 0 4px;
+  }
+  .timeline-line {
+    left: 14px;
+    right: 14px;
+    height: 2px;
+  }
+  .t-node {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 5px;
+    font-size: 12px;
+  }
+  .timeline-card {
+    padding: 24px 20px;
+    gap: 16px;
+    border-radius: 20px;
+  }
+  .t-card-num {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    font-size: 28px;
+  }
+  .t-card-title {
+    font-size: 20px;
+  }
+  .t-card-blurb {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .t-card-list {
+    font-size: 13.5px;
+    gap: 8px;
+  }
 
   .posts-grid, .articles-grid { grid-template-columns: 1fr; gap: 18px; }
   .article-card { padding: 22px 18px 20px; border-radius: 16px; }
