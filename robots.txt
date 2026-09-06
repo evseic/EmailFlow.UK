@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# OpenAI / ChatGPT Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI / Gemini Crawler
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (used by LLMs)
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://emailflow.uk/sitemap.xml
+LLMstxt: https://emailflow.uk/llms.txt
