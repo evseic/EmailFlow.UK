@@ -30,7 +30,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@400;500;600;1,400&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@400;500;600;1,400&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@400;500;600;1,400&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="../../styles.css">
 
   <!-- Structured Data: BlogPosting & BreadcrumbList -->
@@ -229,9 +232,9 @@
   </div>
   <p>A healthy rule: <strong>a discount only in the third email, and only for those who didn’t open or click the first two</strong>. Better still — segment: an incentive is justified for a first-time visitor (the first-purchase barrier is the highest), while a loyal customer usually only needs a reminder. In Omnisend automations, this is done with a conditional branch based on order history.</p>
 
-  <h2>Technical setup in Omnisend</h2>
+  <h2>Technical setup in Omnisend &amp; Klaviyo</h2>
   <ol>
-    <li><strong>Trigger:</strong> use the standard “Abandoned Cart” event (requires a working store integration — Shopify, WooCommerce, or API).</li>
+    <li><strong>Trigger:</strong> use the standard “Abandoned Cart” event via our <a href="https://www.emailflow.uk/klaviyo-agency/">Klaviyo agency</a> or <a href="https://www.emailflow.uk/omnisend-agency/">Omnisend agency</a> workflow configuration (requires a working store integration — Shopify, WooCommerce, or API).</li>
     <li><strong>Exit condition:</strong> make absolutely sure the sequence stops once the shopper completes the order — nothing is worse than a “return to your cart” email sent to someone who has already bought.</li>
     <li><strong>Cart contents block:</strong> add the dynamic “Cart items” block — products, photos, prices, and the button all update automatically.</li>
     <li><strong>Frequency capping:</strong> if a shopper abandons a cart several times a week, the sequence shouldn’t fire every single time — set a cooldown between runs.</li>
@@ -298,29 +301,31 @@
           <a class="logo" href="https://www.emailflow.uk/" aria-label="EmailFlow">
             <span class="wordmark"><span class="email-part">Email</span><span class="flow-part">Flow</span></span>
           </a>
-          <p>Turn your email channel into a predictable, revenue-generating asset with automated flows & high-converting campaigns.</p>
+          <p>UK ecommerce email marketing agency driving +20–30% repeat revenue for online stores.</p>
         </div>
         <div class="col">
-          <strong>Navigation</strong>
-          <p><a href="https://www.emailflow.uk/#how-it-works" style="text-decoration:none;color:inherit;">How it works</a></p>
-          <p><a href="https://www.emailflow.uk/#calculator" style="text-decoration:none;color:inherit;">ROI Calculator</a></p>
-          <p><a href="https://www.emailflow.uk/#tracking" style="text-decoration:none;color:inherit;">7-Day Setup</a></p>
-          <p><a href="https://www.emailflow.uk/blog/" style="text-decoration:none;color:inherit;">Email Marketing Blog</a></p>
+          <strong>Services</strong>
+          <p><a href="https://www.emailflow.uk/ecommerce-email-marketing-agency/" style="text-decoration:none;color:inherit;">Ecommerce Email Agency</a></p>
+          <p><a href="https://www.emailflow.uk/klaviyo-agency/" style="text-decoration:none;color:inherit;">Klaviyo Agency UK</a></p>
+          <p><a href="https://www.emailflow.uk/omnisend-agency/" style="text-decoration:none;color:inherit;">Omnisend Agency UK</a></p>
+          <p><a href="https://www.emailflow.uk/shopify-email-marketing-agency/" style="text-decoration:none;color:inherit;">Shopify Email Marketing</a></p>
+          <p><a href="https://www.emailflow.uk/email-automation/" style="text-decoration:none;color:inherit;">Automated Email Flows</a></p>
         </div>
         <div class="col">
-          <strong>Contact</strong>
-          <p>Ready to add +20–30% revenue?</p>
+          <strong>Company</strong>
+          <p><a href="https://www.emailflow.uk/about/" style="text-decoration:none;color:inherit;">About EmailFlow</a></p>
+          <p><a href="https://www.emailflow.uk/case-studies/" style="color:var(--teal);font-weight:700;text-decoration:none;">Client Case Studies →</a></p>
+          <p><a href="https://www.emailflow.uk/blog/" style="color:var(--teal);font-weight:700;text-decoration:none;">Email Guides &amp; Insights →</a></p>
           <p><a href="mailto:hello@emailflow.uk" style="color:var(--teal);font-weight:600;">hello@emailflow.uk</a></p>
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 EmailFlow. All rights reserved.</span>
-        <span>Automated Email Systems for E-commerce</span>
+        <span>© 2026 EmailFlow — UK Ecommerce Email Marketing Agency. All rights reserved.</span>
       </div>
     </div>
   </footer>
 
 
-  <script src="../../script.js"></script>
+  <script src="../../script.js" defer></script>
 </body>
 </html>

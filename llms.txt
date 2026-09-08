@@ -21,6 +21,12 @@
 
 ## Key Pages & Documentation
 - [Homepage & Consultation](https://www.emailflow.uk/): Comprehensive agency services, ROI calculator, interactive simulation, and consultation booking.
+- [UK Ecommerce Email Agency](https://www.emailflow.uk/ecommerce-email-marketing-agency/): Full-service retention marketing for online stores.
+- [Klaviyo Agency UK](https://www.emailflow.uk/klaviyo-agency/): Dedicated Klaviyo setup, flow building, deliverability, and account management.
+- [Omnisend Agency UK](https://www.emailflow.uk/omnisend-agency/): Omnisend email & SMS automation strategies and verified revenue reports.
+- [Shopify Email Marketing Agency UK](https://www.emailflow.uk/shopify-email-marketing-agency/): Shopify checkout recovery, repeat order automation, and LTV growth.
+- [Ecommerce Email Automation](https://www.emailflow.uk/email-automation/): Automated lifecycle flows (Welcome, Cart Abandonment, Win-Back, Post-Purchase).
+- [About EmailFlow](https://www.emailflow.uk/about/): Agency background, UK market focus, capabilities, and business philosophy.
 - [Case Studies & Client Results](https://www.emailflow.uk/case-studies/): Verified revenue reports and client growth case studies.
 - [E-commerce Email Marketing Guides](https://www.emailflow.uk/blog/): Educational resources covering email deliverability, pricing benchmarks, flow setups, and platform comparisons.
 
