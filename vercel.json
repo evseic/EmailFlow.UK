@@ -16,7 +16,12 @@
   ],
   "redirects": [
     {
-      "source": "/klaviyo-agency/:path*",
+      "source": "/klaviyo-agency/",
+      "destination": "/omnisend-agency/",
+      "statusCode": 301
+    },
+    {
+      "source": "/klaviyo-agency/:path*/",
       "destination": "/omnisend-agency/",
       "statusCode": 301
     }
