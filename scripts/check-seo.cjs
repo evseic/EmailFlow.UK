@@ -40,7 +40,7 @@ for(const url of locations){
  }
 }
 for(const privatePath of ['docs','scripts','tests','server.js','api','.env.example','package.json'])assert.ok(!fs.existsSync(path.join(root,privatePath)),`${privatePath} leaked into public output`);
-const home=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.equal((home.match(/class="seo-faq"/g)||[]).length,7);
+const home=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.equal((home.match(/class="seo-faq"/g)||[]).length,6);
 assert.ok(!home.includes('+20%<br>revenue'));assert.ok(!home.includes('Trusted by 50+'));
 const logo=fs.readFileSync(path.join(root,'assets/logo.png'));
 assert.ok(!fs.existsSync(path.join(root,'klaviyo-agency')),'Retired service must not have public static output');

@@ -431,10 +431,6 @@ const FAQS = [
     "a": "The advertised management fee is £800 per month. Work can include audit, strategy, flow building, copy, design, campaigns, segmentation and reporting. We agree deliverables, campaign frequency, platform charges and any additional costs before work starts."
   },
   {
-    "q": "Does email revenue mean extra store revenue?",
-    "a": "Platform-attributed email revenue is the value of orders credited to email under a chosen attribution model. It is not proof that all those orders were additional sales. We review store totals, attribution windows and testing alongside channel reports."
-  },
-  {
     "q": "Can you guarantee inbox placement?",
     "a": "No provider can guarantee placement in every inbox or the primary tab. Authentication, list hygiene, sending practices and monitoring help manage deliverability, but receiving mail services decide where messages appear."
   }
