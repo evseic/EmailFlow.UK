@@ -1,0 +1,18 @@
+# Node
+node_modules/
+npm-debug.log
+.env*
+!.env.example
+
+# Vercel
+.vercel
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Generated public site
+dist/
+
+# Local audits, screenshots, account data and rollback archives
+docs/

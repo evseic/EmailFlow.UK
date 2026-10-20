@@ -1,35 +1,24 @@
-# EmailFlow UK — Email Marketing & Automation Agency
+# EmailFlow
 
-> EmailFlow is a UK-based e-commerce email marketing agency specializing in Klaviyo, Omnisend, and automated retention flows. We help online stores generate 20–30%+ of total store revenue from email channels within 7 to 60 days.
+> EmailFlow is a London-based email marketing agency serving UK ecommerce stores. We work exclusively with Omnisend. Core services cover lifecycle flows, campaigns, segmentation and deliverability support.
 
-## Core Agency Services
-- **Pricing**: £800/month all-inclusive management (no hidden fees or extra invoices).
-- **Automated Retention Flows**: Custom building of 7 core e-commerce email flows (Welcome Series, Abandoned Cart, Abandoned Checkout, Browse Abandonment, Site Abandonment, Post-Purchase, and Win-Back).
-- **Email Deliverability Engineering**: Full SPF, DKIM, DMARC setup, inbox placement, sender reputation management, and Gmail/Yahoo compliance.
-- **Weekly Campaign Management**: Copywriting, custom responsive email design, list segmentation, and A/B testing (3–4 campaigns/week).
-- **Platform Expertise**: Klaviyo, Omnisend, Shopify Email, and MailerLite.
+## Services
+- [Ecommerce email management](https://www.emailflow.uk/ecommerce-email-marketing-agency/)
+- [Omnisend agency support](https://www.emailflow.uk/omnisend-agency/)
+- [Shopify email marketing](https://www.emailflow.uk/shopify-email-marketing-agency/)
+- [Email automation](https://www.emailflow.uk/email-automation/)
 
-## Key Performance Benchmarks & Results
-- **Average Client Revenue Lift**: +20–30% increase in total e-commerce revenue from email.
-- **Setup Speed**: Audit & strategy in 24 hours; complete automated system live in 7 days.
-- **Cart Recovery Rate**: 5–15% abandoned cart recovery rate.
-- **Open Rates & CTR**: Welcome Series 50–60% open rates; cart recovery 40–50% open rates.
+## Scope and measurement
+Management is advertised at £800/month; the proposal confirms deliverables, campaign frequency, software charges and additional work. Core implementation may follow a seven-day plan after access, content and approvals are ready. Revenue growth, list growth and inbox placement are not guaranteed. Platform-attributed revenue does not establish incremental store growth. Case studies describe individual accounts and should be read with their measurement limitations.
 
-## Primary Target Audience & Geography
-- **Primary Market**: United Kingdom (London, Manchester, Birmingham, UK nationwide) & English-speaking global e-commerce stores.
-- **Ideal Business Profile**: E-commerce stores with monthly revenue of £10,000 to £500,000+.
+## Resources
+- [About and contact](https://www.emailflow.uk/about/)
+- [Case studies](https://www.emailflow.uk/case-studies/)
+- [Email marketing guides](https://www.emailflow.uk/blog/)
+- [Costs and budgeting](https://www.emailflow.uk/blog/email-marketing-pricing/)
+- [Benchmarks and attribution](https://www.emailflow.uk/blog/email-marketing-benchmarks/)
 
-## Key Pages & Documentation
-- [Homepage & Consultation](https://www.emailflow.uk/): Comprehensive agency services, ROI calculator, interactive simulation, and consultation booking.
-- [UK Ecommerce Email Agency](https://www.emailflow.uk/ecommerce-email-marketing-agency/): Full-service retention marketing for online stores.
-- [Klaviyo Agency UK](https://www.emailflow.uk/klaviyo-agency/): Dedicated Klaviyo setup, flow building, deliverability, and account management.
-- [Omnisend Agency UK](https://www.emailflow.uk/omnisend-agency/): Omnisend email & SMS automation strategies and verified revenue reports.
-- [Shopify Email Marketing Agency UK](https://www.emailflow.uk/shopify-email-marketing-agency/): Shopify checkout recovery, repeat order automation, and LTV growth.
-- [Ecommerce Email Automation](https://www.emailflow.uk/email-automation/): Automated lifecycle flows (Welcome, Cart Abandonment, Win-Back, Post-Purchase).
-- [About EmailFlow](https://www.emailflow.uk/about/): Agency background, UK market focus, capabilities, and business philosophy.
-- [Case Studies & Client Results](https://www.emailflow.uk/case-studies/): Verified revenue reports and client growth case studies.
-- [E-commerce Email Marketing Guides](https://www.emailflow.uk/blog/): Educational resources covering email deliverability, pricing benchmarks, flow setups, and platform comparisons.
+Email: hello@emailflow.uk
+Location: London, United Kingdom
 
-## Contact Information
-- **Email**: hello@emailflow.uk
-- **Website**: https://www.emailflow.uk
+This optional summary accompanies the public HTML pages. It does not guarantee inclusion in search or AI answers.

@@ -1,5 +1,24 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
-  "outputDirectory": "."
+  "outputDirectory": "dist",
+  "buildCommand": "npm run build",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/klaviyo-agency/:path*",
+      "destination": "/omnisend-agency/",
+      "statusCode": 301
+    }
+  ]
 }

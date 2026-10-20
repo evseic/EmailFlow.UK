@@ -6,24 +6,24 @@
   <meta name="application-name" content="EmailFlow">
   <meta name="apple-mobile-web-app-title" content="EmailFlow">
   <title>UK E-commerce Email Marketing Guides &amp; Insights | EmailFlow Blog</title>
-  <meta name="description" content="Expert guides &amp; benchmarks for UK e-commerce email marketing. Master Klaviyo &amp; Omnisend automated flows, deliverability (SPF, DKIM, DMARC), welcome series, and abandoned cart recovery.">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Expert guides &amp; benchmarks for UK e-commerce email marketing. Master Omnisend automated flows, deliverability (SPF, DKIM, DMARC), welcome series, and abandoned cart recovery.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="geo.region" content="GB">
   <meta name="geo.placename" content="United Kingdom">
   <link rel="canonical" href="https://www.emailflow.uk/blog/">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:site_name" content="EmailFlow">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://www.emailflow.uk/blog/">
   <meta property="og:title" content="UK E-commerce Email Marketing Guides &amp; Insights | EmailFlow Blog">
-  <meta property="og:description" content="Expert guides &amp; benchmarks for UK e-commerce email marketing. Master Klaviyo &amp; Omnisend automated flows, deliverability, welcome series, and abandoned cart recovery.">
-  
+  <meta property="og:description" content="Expert guides &amp; benchmarks for UK e-commerce email marketing. Master Omnisend automated flows, deliverability, welcome series, and abandoned cart recovery.">
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="UK E-commerce Email Marketing Guides &amp; Insights | EmailFlow Blog">
-  <meta name="twitter:description" content="Expert guides &amp; benchmarks for UK e-commerce email marketing. Master Klaviyo &amp; Omnisend automated flows, deliverability, welcome series, and abandoned cart recovery.">
+  <meta name="twitter:description" content="Expert guides &amp; benchmarks for UK e-commerce email marketing. Master Omnisend automated flows, deliverability, welcome series, and abandoned cart recovery.">
   <!-- Favicon / Meta Icon -->
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -39,38 +39,36 @@
 
   <!-- Structured Data: Blog & BreadcrumbList -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "EmailFlow E-commerce Email Marketing Blog",
-    "description": "Practical guides and benchmarks for e-commerce email marketing in the UK.",
-    "url": "https://www.emailflow.uk/blog/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "EmailFlow",
-      "logo": "https://www.emailflow.uk/favicon.png"
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "EmailFlow E-commerce Email Marketing Blog",
+  "description": "Practical guides and benchmarks for e-commerce email marketing in the UK.",
+  "url": "https://www.emailflow.uk/blog/",
+  "publisher": {
+    "@id": "https://www.emailflow.uk/#organization"
   }
+}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.emailflow.uk/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://www.emailflow.uk/blog/"
-      }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.emailflow.uk/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.emailflow.uk/blog/"
+    }
+  ]
+}
   </script>
   <style>
     .blog-hero { padding: 50px 0 36px; border-bottom: 1px solid var(--line); margin-bottom: 45px; }
@@ -78,7 +76,7 @@
     .blog-hero .crumbs a { color: var(--ink-60); text-decoration: none; }
     .blog-hero h1 { font-family: var(--disp); font-size: clamp(32px, 5vw, 48px); font-weight: 700; letter-spacing: -.03em; margin-bottom: 14px; color: var(--ink); }
     .blog-hero p { font-size: 18px; color: var(--ink-60); max-width: 60ch; line-height: 1.6; }
-    
+
     .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     @media(max-width: 960px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
     @media(max-width: 640px) { .posts-grid { grid-template-columns: 1fr; } }
@@ -99,47 +97,56 @@
   </style>
   <!-- Structured Data: Organization -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "EmailFlow",
-    "legalName": "EmailFlow UK",
-    "url": "https://www.emailflow.uk/",
-    "logo": "https://www.emailflow.uk/favicon.png",
-    "image": "https://www.emailflow.uk/favicon.png",
-    "description": "UK email marketing agency driving +20–30% revenue for e-commerce stores through automated flows and deliverability engineering.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "London",
-      "addressCountry": "GB"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "hello@emailflow.uk",
-      "contactType": "customer service",
-      "areaServed": "GB",
-      "availableLanguage": "English"
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.emailflow.uk/#organization",
+  "name": "EmailFlow",
+  "url": "https://www.emailflow.uk/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.emailflow.uk/assets/logo.png",
+    "width": 256,
+    "height": 256
+  },
+  "description": "EmailFlow is a London-based email marketing agency for UK ecommerce stores, offering Omnisend flows, campaigns and deliverability support.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
+  "email": "hello@emailflow.uk",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
   }
+}
   </script>
+  <meta property="og:image" content="https://www.emailflow.uk/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EmailFlow — ecommerce email marketing, Omnisend">
+  <meta name="twitter:image" content="https://www.emailflow.uk/assets/social-preview.png">
+  <meta name="twitter:image:alt" content="EmailFlow ecommerce email marketing">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-  
+
   <header>
     <div class="wrap nav">
-      <a class="logo" href="https://www.emailflow.uk/" aria-label="EmailFlow home">
+      <a class="logo" href="/" aria-label="EmailFlow home">
         <span class="wordmark"><span class="email-part">Email</span><span class="flow-part">Flow</span></span>
       </a>
       <nav class="nav-links">
-        <a href="https://www.emailflow.uk/#how-it-works">How it works</a>
-        <a href="https://www.emailflow.uk/#calculator">Calculator</a>
-        <a href="https://www.emailflow.uk/#tracking">7 days</a>
-        <a href="https://www.emailflow.uk/case-studies/" class="">Results</a>
-        <a href="https://www.emailflow.uk/blog/" class="active">Articles</a>
-        <a href="https://www.emailflow.uk/#faq">FAQ</a>
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#calculator">Calculator</a>
+        <a href="/#tracking">7 days</a>
+        <a href="/case-studies/" class="">Results</a>
+        <a href="/blog/" class="active">Articles</a>
+        <a href="/#faq">FAQ</a>
       </nav>
-      <a class="btn btn-primary" href="https://www.emailflow.uk/#consultation">Book a consultation 
+      <a class="btn btn-primary" href="/#consultation">Book a consultation
         <span class="arrow">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
             <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -154,13 +161,13 @@
     </div>
     <div class="mobile-nav" id="mobileNav">
       <div class="inner">
-        <a href="https://www.emailflow.uk/#how-it-works">How it works</a>
-        <a href="https://www.emailflow.uk/#calculator">Calculator</a>
-        <a href="https://www.emailflow.uk/#tracking">7 days</a>
-        <a href="https://www.emailflow.uk/case-studies/">Results</a>
-        <a href="https://www.emailflow.uk/blog/">Articles</a>
-        <a href="https://www.emailflow.uk/#faq">FAQ</a>
-        <a class="btn btn-primary" href="https://www.emailflow.uk/#consultation">Book a consultation 
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#calculator">Calculator</a>
+        <a href="/#tracking">7 days</a>
+        <a href="/case-studies/">Results</a>
+        <a href="/blog/">Articles</a>
+        <a href="/#faq">FAQ</a>
+        <a class="btn btn-primary" href="/#consultation">Book a consultation
           <span class="arrow">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
               <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -172,36 +179,36 @@
   </header>
 
 
-  <main class="wrap" style="padding-bottom: 90px;">
+  <main id="main-content" class="wrap" style="padding-bottom: 90px;">
     <section class="blog-hero">
-      <nav class="crumbs"><a href="https://www.emailflow.uk/">Home</a> / Blog</nav>
+      <nav class="crumbs"><a href="/">Home</a> / Blog</nav>
       <h1>Email Marketing Guides</h1>
       <p>Practical strategy without the fluff: the automations, frameworks, and benchmarks we test every day in e-commerce stores.</p>
     </section>
 
     <div class="posts-grid">
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/email-sending-frequency/">
+
+        <a class="article-card" href="/blog/email-sending-frequency/">
           <span class="article-tag">Strategy</span>
-          <h2 class="article-title">How Many Emails Should You Send Per Week? More Than You Dare</h2>
-          <p class="article-desc">Most online stores send 2–4 emails a month because they fear unsubscribes. We recommend 3–4 campaigns a week — here are the arguments, the conditions, and the transition plan.</p>
+          <h2 class="article-title">How often should an ecommerce store send marketing emails?</h2>
+          <p class="article-desc">Choose a sending rhythm using audience expectations, campaign and flow overlap, engagement signals and a measured test plan.</p>
           <div class="article-foot">
             <span class="article-date">2026-07-08</span>
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/email-marketing-benchmarks/">
+
+        <a class="article-card" href="/blog/email-marketing-benchmarks/">
           <span class="article-tag">Analytics</span>
-          <h2 class="article-title">What Is a Good Open Rate? Email Marketing Benchmarks for Online Stores</h2>
-          <p class="article-desc">Open rate, CTR, RPE and unsubscribe benchmarks for online stores — and why open rates have been lying since 2021. What to actually measure and what to do when the numbers are low.</p>
+          <h2 class="article-title">Email marketing benchmarks: what to measure and compare</h2>
+          <p class="article-desc">Compare metrics with consistent definitions, account for automated opens and clicks, and distinguish attributed revenue from incremental growth.</p>
           <div class="article-foot">
             <span class="article-date">2026-07-01</span>
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/email-popup-forms/">
+
+        <a class="article-card" href="/blog/email-popup-forms/">
           <span class="article-tag">List growth</span>
           <h2 class="article-title">Email Popup Forms That Collect Subscribers (Without Annoying Anyone)</h2>
           <p class="article-desc">5 popup formulas that work for e-commerce stores: discount, lead magnet, two-step, exit-intent. Display timing, mobile rules, and how to avoid the Google penalty.</p>
@@ -210,18 +217,18 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/winback-email-sequence/">
+
+        <a class="article-card" href="/blog/winback-email-sequence/">
           <span class="article-tag">Automations</span>
           <h2 class="article-title">Win-Back Email Sequence: How to Wake Up "Dormant" Customers</h2>
-          <p class="article-desc">Every second contact on your list is dormant. A 3-email win-back sequence, the right timing based on your product cycle, and a sunset policy that protects deliverability.</p>
+          <p class="article-desc">Identify lapsed contacts using your actual buying cycle. A 3-email win-back sequence, the right timing based on your product cycle, and a sunset policy that protects deliverability.</p>
           <div class="article-foot">
             <span class="article-date">2026-06-17</span>
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/post-purchase-emails/">
+
+        <a class="article-card" href="/blog/post-purchase-emails/">
           <span class="article-tag">Automations</span>
           <h2 class="article-title">Post-purchase emails: the sequence that turns a first order into a second</h2>
           <p class="article-desc">Right after a purchase, customer trust is at its peak — yet most stores only send an order confirmation. A 4-email post-purchase sequence: thank-you, usage guide, review request, recommendations.</p>
@@ -230,8 +237,8 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/why-emails-go-to-spam/">
+
+        <a class="article-card" href="/blog/why-emails-go-to-spam/">
           <span class="article-tag">Deliverability</span>
           <h2 class="article-title">Why emails go to spam: SPF, DKIM, and DMARC in plain English</h2>
           <p class="article-desc">Emails landing in spam? We explain SPF, DKIM, and DMARC in plain English, cover Gmail's sender requirements, and show how to check your domain's deliverability in 5 minutes.</p>
@@ -240,8 +247,8 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/ecommerce-email-flows-guide/">
+
+        <a class="article-card" href="/blog/ecommerce-email-flows-guide/">
           <span class="article-tag">Automations</span>
           <h2 class="article-title">7 email flows that should be running in every online store</h2>
           <p class="article-desc">Welcome, abandoned cart, abandoned checkout, post-purchase, and 3 more flows — a complete automated email system generating 20%+ of store revenue. Includes a free guide.</p>
@@ -250,8 +257,8 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/email-marketing-pricing/">
+
+        <a class="article-card" href="/blog/email-marketing-pricing/">
           <span class="article-tag">Strategy</span>
           <h2 class="article-title">Email marketing pricing: DIY, freelancer, or agency?</h2>
           <p class="article-desc">How much email marketing really costs: platform pricing, freelancer and agency rates, ROI math, and 5 questions to ask before signing a contract.</p>
@@ -260,8 +267,8 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/omnisend-vs-klaviyo-vs-mailerlite/">
+
+        <a class="article-card" href="/blog/omnisend-vs-klaviyo-vs-mailerlite/">
           <span class="article-tag">Platforms</span>
           <h2 class="article-title">Omnisend vs Klaviyo vs MailerLite: which platform should you choose?</h2>
           <p class="article-desc">An honest comparison of Omnisend, Klaviyo, and MailerLite for e-commerce: pricing, automations, integrations, and a clear answer on when each platform is the best pick.</p>
@@ -270,8 +277,8 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/welcome-email-series/">
+
+        <a class="article-card" href="/blog/welcome-email-series/">
           <span class="article-tag">Email automations</span>
           <h2 class="article-title">The welcome series: emails that turn a subscriber into a customer</h2>
           <p class="article-desc">Welcome emails get opened more than any other email you send. A 4-email sequence, send times, subject line examples, and a discount code strategy for new subscribers.</p>
@@ -280,8 +287,8 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
-        <a class="article-card" href="https://www.emailflow.uk/blog/abandoned-cart-emails/">
+
+        <a class="article-card" href="/blog/abandoned-cart-emails/">
           <span class="article-tag">Email automations</span>
           <h2 class="article-title">Abandoned cart emails: how to recover lost sales</h2>
           <p class="article-desc">Around 70% of online shopping carts are abandoned. A 3-email sequence, send times, subject line examples, and a discount strategy that wins back lost sales.</p>
@@ -290,33 +297,32 @@
             <span class="article-more">Read guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
-      
+
     </div>
   </main>
 
-  
+
   <footer>
     <div class="wrap">
       <div class="foot-grid">
         <div class="col">
-          <a class="logo" href="https://www.emailflow.uk/" aria-label="EmailFlow">
+          <a class="logo" href="/" aria-label="EmailFlow">
             <span class="wordmark"><span class="email-part">Email</span><span class="flow-part">Flow</span></span>
           </a>
-          <p>UK ecommerce email marketing agency driving +20–30% repeat revenue for online stores.</p>
+          <p>London-based email marketing agency for UK ecommerce stores.</p>
         </div>
         <div class="col">
           <strong>Services</strong>
-          <p><a href="https://www.emailflow.uk/ecommerce-email-marketing-agency/" style="text-decoration:none;color:inherit;">Ecommerce Email Agency</a></p>
-          <p><a href="https://www.emailflow.uk/klaviyo-agency/" style="text-decoration:none;color:inherit;">Klaviyo Agency UK</a></p>
-          <p><a href="https://www.emailflow.uk/omnisend-agency/" style="text-decoration:none;color:inherit;">Omnisend Agency UK</a></p>
-          <p><a href="https://www.emailflow.uk/shopify-email-marketing-agency/" style="text-decoration:none;color:inherit;">Shopify Email Marketing</a></p>
-          <p><a href="https://www.emailflow.uk/email-automation/" style="text-decoration:none;color:inherit;">Automated Email Flows</a></p>
+          <p><a href="/ecommerce-email-marketing-agency/" style="text-decoration:none;color:inherit;">Ecommerce Email Agency</a></p>
+          <p><a href="/omnisend-agency/" style="text-decoration:none;color:inherit;">Omnisend Agency UK</a></p>
+          <p><a href="/shopify-email-marketing-agency/" style="text-decoration:none;color:inherit;">Shopify Email Marketing</a></p>
+          <p><a href="/email-automation/" style="text-decoration:none;color:inherit;">Automated Email Flows</a></p>
         </div>
         <div class="col">
           <strong>Company</strong>
-          <p><a href="https://www.emailflow.uk/about/" style="text-decoration:none;color:inherit;">About EmailFlow</a></p>
-          <p><a href="https://www.emailflow.uk/case-studies/" style="color:var(--teal);font-weight:700;text-decoration:none;">Client Case Studies →</a></p>
-          <p><a href="https://www.emailflow.uk/blog/" style="color:var(--teal);font-weight:700;text-decoration:none;">Email Guides &amp; Insights →</a></p>
+          <p><a href="/about/" style="text-decoration:none;color:inherit;">About EmailFlow</a></p>
+          <p><a href="/case-studies/" style="color:var(--teal);font-weight:700;text-decoration:none;">Client Case Studies →</a></p>
+          <p><a href="/blog/" style="color:var(--teal);font-weight:700;text-decoration:none;">Email Guides &amp; Insights →</a></p>
           <p><a href="mailto:hello@emailflow.uk" style="color:var(--teal);font-weight:600;">hello@emailflow.uk</a></p>
         </div>
       </div>
@@ -328,5 +334,7 @@
 
 
   <script src="../script.js" defer></script>
+<noscript><style>.reveal,.rise{opacity:1!important;transform:none!important;filter:none!important}.faq-a{max-height:none!important}</style><p class="no-script-contact">For a consultation, email <a href="mailto:hello@emailflow.uk">hello@emailflow.uk</a>.</p></noscript>
+<script type="module" src="/assets/analytics.js"></script>
 </body>
 </html>

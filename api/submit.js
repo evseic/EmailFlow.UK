@@ -16,15 +16,23 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { name, email, phone, website, answers } = req.body || {};
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+    const { name: rawName, email: rawEmail, phone, website, answers } = body;
+    const name = typeof rawName === 'string' ? rawName.trim() : rawName;
+    const email = typeof rawEmail === 'string' ? rawEmail.trim() : rawEmail;
 
-    if (!name || !email) {
-      return res.status(400).json({ error: 'Name and Email are required.' });
+    if (typeof name !== 'string' || !name.trim() || name.length > 200 ||
+        typeof email !== 'string' || email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+        (phone != null && (typeof phone !== 'string' || phone.length > 80)) ||
+        (website != null && (typeof website !== 'string' || website.length > 2048)) ||
+        (answers != null && (typeof answers !== 'object' || Array.isArray(answers))) ||
+        JSON.stringify(answers || {}).length > 10000) {
+      return res.status(400).json({ success: false, error: 'Please provide valid contact details.' });
     }
 
     const leadData = {
-      name: name || '',
-      email: email || '',
+      name: name.trim(),
+      email: email.trim(),
       phone: phone || '',
       website: website || '',
       answers: answers || {},
@@ -69,22 +77,24 @@ module.exports = async function handler(req, res) {
 
     if (telegramToken && telegramChatId) {
       try {
+        const escapeHtml = str => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
         const answersFormatted = Object.entries(answers || {})
-          .map(([q, a]) => `• *${q}:* ${a}`)
+          .map(([q, a]) => `• <b>${escapeHtml(q)}:</b> ${escapeHtml(a)}`)
           .join('\n');
 
         const messageText = [
-          `🚀 *New Consultation Request on EmailFlow!*`,
+          `🚀 <b>New Consultation Request on EmailFlow!</b>`,
           ``,
-          `👤 *Name:* ${leadData.name}`,
-          `📧 *Email:* ${leadData.email}`,
-          `📞 *Phone:* ${leadData.phone || 'Not provided'}`,
-          `🌐 *Website:* ${leadData.website || 'Not provided'}`,
+          `👤 <b>Name:</b> ${escapeHtml(leadData.name)}`,
+          `📧 <b>Email:</b> ${escapeHtml(leadData.email)}`,
+          `📞 <b>Phone:</b> ${escapeHtml(leadData.phone || 'Not provided')}`,
+          `🌐 <b>Website:</b> ${escapeHtml(leadData.website || 'Not provided')}`,
           ``,
-          `📊 *Quiz Answers:*`,
-          answersFormatted || '_No quiz answers provided_',
+          `📊 <b>Quiz Answers:</b>`,
+          answersFormatted || '<i>No quiz answers provided</i>',
           ``,
-          `⏰ *Time:* ${new Date().toLocaleString('en-US', { timeZone: 'UTC' })} UTC`
+          `⏰ <b>Time:</b> ${new Date().toLocaleString('en-US', { timeZone: 'UTC' })} UTC`
         ].join('\n');
 
         const tgRes = await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
@@ -93,7 +103,7 @@ module.exports = async function handler(req, res) {
           body: JSON.stringify({
             chat_id: telegramChatId,
             text: messageText,
-            parse_mode: 'Markdown'
+            parse_mode: 'HTML'
           })
         });
 
@@ -108,16 +118,21 @@ module.exports = async function handler(req, res) {
       }
     }
 
+    if (!supabaseSaved && !telegramSent) {
+      return res.status(503).json({
+        success: false,
+        error: 'We could not accept your request. Please try again or email hello@emailflow.uk.'
+      });
+    }
+
     return res.status(200).json({
       success: true,
       message: 'Consultation request received successfully!',
-      supabaseSaved,
-      telegramSent,
-      errors: errors.length > 0 ? errors : undefined
     });
 
   } catch (error) {
-    console.error('Submission Handler Error:', error);
-    return res.status(500).json({ error: 'Internal server error', details: error.message });
+    return res.status(error instanceof SyntaxError ? 400 : 500).json({
+      success: false, error: 'Unable to process the consultation request.'
+    });
   }
 }
