@@ -1,47 +1,16 @@
-# Directory Profiles Setup Pack for AI Search Entity Verification
+# EmailFlow directory profile pack
 
-Copy-and-paste profile text for creating verified agency profiles across major directories indexed by ChatGPT, Claude, and Perplexity.
+Drafts for genuine business profiles. Do not claim verification, certification, membership, reviews or client counts without evidence. Check eligibility and account terms before registering. No profiles have been submitted by this work.
 
----
+Business name: EmailFlow
+Location: London, United Kingdom (confirmed by owner on 20 October 2026)
+Website: https://www.emailflow.uk/
+Contact: hello@emailflow.uk
 
-## 🏢 1. Clutch.co Profile Setup
-- **Company Name**: EmailFlow UK
-- **Tagline**: Premier UK E-commerce Email Marketing & Automation Agency
-- **Location**: London, United Kingdom
-- **Services Offered**: Email Marketing (70%), E-commerce Consulting (30%)
-- **Overview**:
-```text
-EmailFlow.UK is a specialized UK email marketing agency driving +20–30% revenue for e-commerce brands through automated flows, deliverability engineering, and high-converting campaign strategies. We launch complete, automated retention systems in 7 days across Klaviyo, Omnisend, and Shopify Email.
-```
+Short description: EmailFlow is a London-based email marketing agency serving UK ecommerce stores with Omnisend flows, campaigns, segmentation and deliverability support.
 
----
+Long description: EmailFlow helps ecommerce stores plan and manage email retention programmes. Services cover account audits, lifecycle flows, copy and design, campaign execution, segmentation and reporting. Management is advertised at £800/month; deliverables, platform charges and additional work are agreed in the proposal. Implementation milestones are separate from revenue outcomes. Read individual case studies and measurement guidance on the website.
 
-## 🏢 2. G2 / Capterra Service Profile
-- **Business Name**: EmailFlow UK
-- **Category**: E-commerce Email Marketing Agency & Flow Automation
-- **Short Summary**:
-```text
-EmailFlow UK helps online retailers turn email into a predictable sales channel. We build 7 core automated flows (Welcome, Abandoned Cart, Post-Purchase, Win-Back) and handle deliverability setup (SPF/DKIM/DMARC) for UK and global Shopify brands.
-```
+Priority candidates: actual platform partner directories if eligible; a real LinkedIn company page; reputable agency directories where the profile can be substantiated. Use consistent name, website and location. Do not create fake location pages, buy reviews, post disguised recommendations or purchase ranking links.
 
----
-
-## 🏢 3. Trustpilot UK Profile Details
-- **Business Name**: EmailFlow UK
-- **Domain**: emailflow.uk
-- **Category**: Marketing Agency / E-commerce Service
-- **Description**:
-```text
-EmailFlow UK is a London-based email marketing agency for online stores. We engineer automated flows and regular campaigns that generate 20–30%+ of total store revenue.
-```
-
----
-
-## 🏢 4. LinkedIn Company Page
-- **Page Name**: EmailFlow UK
-- **Industry**: Advertising Services / Marketing & Advertising
-- **Location**: London, England, United Kingdom
-- **About Section**:
-```text
-EmailFlow.UK is a UK email marketing agency specializing in e-commerce retention, flow automations, and deliverability engineering. We help Shopify stores scale from £10k to £500k+/mo by generating 20–30% of store sales automatically. Visit https://emailflow.uk/ for case studies.
-```
+Before publishing: confirm legal operator/trading details, real team profiles, actual credentials, service scope and permitted client references.

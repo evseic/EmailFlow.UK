@@ -102,11 +102,11 @@ const TIMELINE_STEPS = [
     num: '2',
     day: 'DAY 2',
     title: 'Technical foundation',
-    blurb: 'Your emails will reach the inbox, not the spam folder.',
+    blurb: 'We check authentication, list health and sending configuration.',
     items: [
       'Omnisend integration with your store',
       'Email deliverability check and fixes',
-      'Sender reputation setup — so emails stay out of spam'
+      'Sender reputation checks and sending recommendations'
     ]
   },
   {
@@ -135,7 +135,7 @@ const TIMELINE_STEPS = [
     num: '7',
     day: 'DAY 7',
     title: 'Launch & monitoring',
-    blurb: 'The system is fully active and starts generating revenue.',
+    blurb: 'The agreed core flows are tested and ready to launch, subject to approvals.',
     items: [
       'Launch of all retention automations',
       'Activation of live results dashboard',
@@ -149,7 +149,7 @@ let currentTimelineStep = 0;
 function renderTimelineStep(idx) {
   currentTimelineStep = idx;
   const s = TIMELINE_STEPS[idx];
-  
+
   $$('.t-node').forEach((node, i) => {
     node.classList.toggle('active', i === idx);
   });
@@ -300,12 +300,13 @@ function renderForm() {
   <div class="quiz-step">
     <form id="leadForm" novalidate style="max-width:440px;margin:0 auto">
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="field" data-f="name"><label for="fName">Full name</label><input id="fName" type="text" placeholder="John Smith" autocomplete="name"><div class="err"></div></div>
-        <div class="field" data-f="email"><label for="fEmail">Email</label><input id="fEmail" type="email" placeholder="name@yourbusiness.com" autocomplete="email"><div class="err"></div></div>
-        <div class="field" data-f="phone"><label for="fPhone">Phone number</label><input id="fPhone" type="tel" placeholder="+1 234 567 8900" autocomplete="tel"><div class="err"></div></div>
-        <div class="field" data-f="website"><label for="fWeb">Website</label><input id="fWeb" type="text" placeholder="your-store.com"><div class="err"></div></div>
+        <div class="field" data-f="name"><label for="fName">Full name</label><input id="fName" required maxlength="200" aria-describedby="fNameError" type="text" placeholder="John Smith" autocomplete="name"><div class="err" id="fNameError"></div></div>
+        <div class="field" data-f="email"><label for="fEmail">Email</label><input id="fEmail" required maxlength="254" aria-describedby="fEmailError" type="email" placeholder="name@yourbusiness.com" autocomplete="email"><div class="err" id="fEmailError"></div></div>
+        <div class="field" data-f="phone"><label for="fPhone">Phone number</label><input id="fPhone" required maxlength="80" aria-describedby="fPhoneError" type="tel" placeholder="+44 20 7946 0123" autocomplete="tel"><div class="err" id="fPhoneError"></div></div>
+        <div class="field" data-f="website"><label for="fWeb">Website</label><input id="fWeb" required maxlength="2048" aria-describedby="fWebError" type="text" placeholder="your-store.com" autocomplete="url"><div class="err" id="fWebError"></div></div>
       </div>
-      <p id="submitErr" style="display:none;color:var(--stamp);font-size:13px;font-weight:600;margin-top:14px;text-align:center;background:rgba(216,80,43,.08);border:1px solid rgba(216,80,43,.25);border-radius:12px;padding:11px"></p>
+      <p class="form-data-note">We use these details to respond to your consultation request. For questions about your data, email <a href="mailto:hello@emailflow.uk">hello@emailflow.uk</a>.</p>
+      <p role="alert" id="submitErr" style="display:none;color:var(--stamp);font-size:13px;font-weight:600;margin-top:14px;text-align:center;background:rgba(216,80,43,.08);border:1px solid rgba(216,80,43,.25);border-radius:12px;padding:11px"></p>
       <button class="btn btn-primary" type="submit" id="leadSubmit" style="width:100%;justify-content:space-between;margin-top:22px"><span>Book Consultation</span> <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></button>
     </form>
     <button class="q-back" id="qBack">← Go back</button>
@@ -318,7 +319,7 @@ function renderForm() {
 
   let prevPhone = contactInfo.phone;
   $('#fPhone').addEventListener('input', e => {
-    if (/^[0-9+\s]*$/.test(e.target.value)) { prevPhone = e.target.value; }
+    if (/^[0-9+()\s-]*$/.test(e.target.value)) { prevPhone = e.target.value; }
     else { e.target.value = prevPhone; }
     contactInfo.phone = e.target.value;
     if (touched.phone) paintErrors();
@@ -337,6 +338,7 @@ function renderForm() {
     $$('#leadForm .field').forEach(el => {
       const k = el.dataset.f, show = touched[k] && errs[k];
       el.classList.toggle('invalid', !!show);
+      el.querySelector('input').setAttribute('aria-invalid', show ? 'true' : 'false');
       el.querySelector('.err').textContent = show ? errs[k] : '';
     });
     return errs;
@@ -351,34 +353,43 @@ function renderForm() {
     if (Object.keys(errs).length) {
       errEl.style.display = 'block';
       errEl.textContent = 'Please check the fields marked in red.';
+      const firstInvalid = $('#leadForm [aria-invalid="true"]');
+      if (firstInvalid) firstInvalid.focus();
       return;
     }
     errEl.style.display = 'none';
 
     isSubmitting = true;
-    const btn = $('#leadSubmitBtn');
+    const btn = $('#leadSubmit');
+    const originalButton = btn ? btn.innerHTML : '';
     if (btn) {
       btn.disabled = true;
       btn.innerHTML = 'Sending... <span class="spin"></span>';
     }
 
     try {
-      await fetch('/api/submit', {
+      const response = await fetch('/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: contactInfo.name,
-          email: contactInfo.email,
-          phone: contactInfo.phone,
-          website: contactInfo.website,
+          name: contactInfo.name.trim(),
+          email: contactInfo.email.trim(),
+          phone: contactInfo.phone.trim(),
+          website: contactInfo.website.trim(),
           answers
         })
       });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error('Submission was not accepted');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'generate_lead', form_name: 'consultation', page_path: location.pathname });
+      renderComplete();
     } catch (err) {
-      console.warn('Form API submit fallback:', err);
+      errEl.style.display = 'block';
+      errEl.textContent = 'We could not confirm your request. Please try again or email hello@emailflow.uk.';
+      if (btn) { btn.disabled = false; btn.innerHTML = originalButton; }
     } finally {
       isSubmitting = false;
-      renderComplete();
     }
   });
 }
@@ -390,8 +401,8 @@ function renderComplete() {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <div class="q-title">Consultation Request Confirmed!</div>
-    <p class="q-sub" style="max-width:46ch;margin:10px auto 22px">Thank you! We have received your answers and contact details. Our strategy team will reach out within 24 hours.</p>
-    <a class="btn btn-primary" href="#top">Back to top <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></a>
+    <p class="q-sub" style="max-width:46ch;margin:10px auto 22px">Thank you! We have received your answers and contact details. We will review your enquiry and get in touch.</p>
+    <a class="btn btn-primary" href="/#top">Back to top <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></a>
   </div>`;
 }
 
@@ -399,17 +410,38 @@ if (shell) renderQuiz();
 
 /* ════════ FAQ ════════ */
 const FAQS = [
-  { q: 'How quickly will I see results?', a: 'The first results show up within 2-4 weeks — once the core automated flows go live (welcome series, abandoned cart, post-purchase). A stable +20-30% revenue lift from the email channel is typically reached within 60-90 days, as campaigns and segmentation gain momentum.' },
-  { q: 'Which platforms do you work with?', a: 'Omnisend & Klaviyo' },
-  { q: 'Does this work for smaller businesses or only big ones?', a: 'Monthly revenue among our clients ranges from £10,000 to £500,000+. For smaller stores, email often delivers the highest ROI — the fundamentals just need to be set up properly. We only turn away businesses whose monthly revenue is still under £10,000 — at that stage, the investment in email simply would not pay off.' },
-  { q: 'Do I need a big email list already?', a: 'No. If your list is small — or you do not have one at all — the first step is signup forms and pop-ups. Within 30-60 days the list typically grows 3-5x. We work with everything from zero-contact lists to 50,000+ contact databases.' },
-  { q: 'What do I get for the service?', a: 'Full management of your email channel for £800/month: audit, strategy, 5+ automated flows built, regular campaigns (8 per month), copywriting, design, A/B testing, segmentation, deliverability monitoring and reporting. No extra invoices — everything is included.' },
-  { q: 'Is this only for online stores?', a: 'E-commerce is our core focus, but we also work successfully with service businesses (agencies, consulting, courses, B2B SaaS). Only the strategic emphasis differs — where an online store automates purchase flows, a service business uses email for lead nurturing and client retention.' },
-  { q: 'How long does it take to launch?', a: 'Audit and strategy — 12-24 hours after the first call. Core automated flows — 5 business days, with the first campaign launching within 2-3 weeks. The full foundation is live within the first month; the months after that are about growth, optimization and rolling out new campaigns.' }
+  {
+    "q": "How quickly can email automation launch?",
+    "a": "Core flows can be planned for a seven-day implementation once account access, integrations, content and approvals are ready. Scope is agreed after the audit. Launch timing is separate from commercial results; revenue and list growth are not guaranteed."
+  },
+  {
+    "q": "Which platforms do you work with?",
+    "a": "We work exclusively with Omnisend, including Shopify store integrations. We help with flows, campaigns, segmentation and deliverability."
+  },
+  {
+    "q": "Which stores are a good fit?",
+    "a": "Our core service is designed for ecommerce stores with monthly revenue above £10,000. Suitability also depends on list size, consent, purchase frequency and the work required. We assess these during the consultation."
+  },
+  {
+    "q": "Do I need an existing email list?",
+    "a": "An established list helps, but signup forms and customer integrations can be part of the plan. List growth depends on store traffic, the offer and permission to send marketing; there is no fixed growth multiple."
+  },
+  {
+    "q": "How much does email management cost?",
+    "a": "The advertised management fee is £800 per month. Work can include audit, strategy, flow building, copy, design, campaigns, segmentation and reporting. We agree deliverables, campaign frequency, platform charges and any additional costs before work starts."
+  },
+  {
+    "q": "Does email revenue mean extra store revenue?",
+    "a": "Platform-attributed email revenue is the value of orders credited to email under a chosen attribution model. It is not proof that all those orders were additional sales. We review store totals, attribution windows and testing alongside channel reports."
+  },
+  {
+    "q": "Can you guarantee inbox placement?",
+    "a": "No provider can guarantee placement in every inbox or the primary tab. Authentication, list hygiene, sending practices and monitoring help manage deliverability, but receiving mail services decide where messages appear."
+  }
 ];
 
 const faqWrap = $('#faqList');
-if (faqWrap) {
+if (faqWrap && !faqWrap.children.length) {
   FAQS.forEach((f, i) => {
     const item = document.createElement('div');
     item.className = 'faq-item' + (i === 0 ? ' open' : '');
