@@ -307,7 +307,7 @@ function renderForm() {
       </div>
       <p class="form-data-note">We use these details to respond to your consultation request. For questions about your data, email <a href="mailto:hello@emailflow.uk">hello@emailflow.uk</a>.</p>
       <p role="alert" id="submitErr" style="display:none;color:var(--stamp);font-size:13px;font-weight:600;margin-top:14px;text-align:center;background:rgba(216,80,43,.08);border:1px solid rgba(216,80,43,.25);border-radius:12px;padding:11px"></p>
-      <button class="btn btn-primary" type="submit" id="leadSubmit" style="width:100%;justify-content:space-between;margin-top:22px"><span>Book Consultation</span> <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></button>
+      <button class="btn btn-primary" type="submit" id="leadSubmit" style="width:100%;justify-content:space-between;margin-top:22px"><span>Continue to choose a time</span> <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></button>
     </form>
     <button class="q-back" id="qBack">← Go back</button>
   </div>`;
@@ -394,16 +394,43 @@ function renderForm() {
   });
 }
 
+const BOOKING_URL = 'https://calendly.com/nick-emailflow/emailflow-consultation';
+
 function renderComplete() {
+  shell.classList.add('quiz-shell-booking');
   shell.innerHTML = `<div class="quiz-progress"><i style="width:100%"></i></div>
   <div class="quiz-step success-box">
     <div class="big-ic" style="background:var(--teal);color:#fff">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="q-title">Consultation Request Confirmed!</div>
-    <p class="q-sub" style="max-width:46ch;margin:10px auto 22px">Thank you! We have received your answers and contact details. We will review your enquiry and get in touch.</p>
-    <a class="btn btn-primary" href="/#top">Back to top <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></a>
+    <h3 class="q-title booking-title" tabindex="-1">Choose your consultation time</h3>
+    <p class="q-sub booking-intro">Your answers have been received. Pick a date and time below to finish booking your free consultation.</p>
+    <p class="booking-fallback">Calendar not loading? <a href="${BOOKING_URL}" target="_blank" rel="noopener noreferrer">Open the booking page in a new tab ↗</a></p>
+    <div id="consultationCalendar" class="booking-calendar" aria-label="Book your free consultation"></div>
   </div>`;
+  shell.querySelector('.booking-title').focus({ preventScroll: true });
+  shell.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  const calendar = document.getElementById('consultationCalendar');
+  const initializeCalendar = () => {
+    if (!calendar.isConnected || !window.Calendly) return;
+    window.Calendly.initInlineWidget({
+      url: BOOKING_URL,
+      parentElement: calendar,
+      prefill: { name: contactInfo.name.trim(), email: contactInfo.email.trim() }
+    });
+  };
+  if (window.Calendly) {
+    initializeCalendar();
+  } else {
+    const widget = document.createElement('script');
+    widget.src = 'https://assets.calendly.com/assets/external/widget.js';
+    widget.async = true;
+    widget.onload = initializeCalendar;
+    widget.onerror = () => {
+      calendar.innerHTML = '<p class="booking-load-error" role="status">The calendar could not load. Please use the booking link above to choose your time.</p>';
+    };
+    document.head.appendChild(widget);
+  }
 }
 
 if (shell) renderQuiz();

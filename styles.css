@@ -1387,6 +1387,18 @@ input[type=range]::-moz-range-thumb {
 .env-dot::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; background: var(--mint); animation: dot-pulse 2.2s ease-out infinite; }
 @keyframes dot-pulse { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(2.4); opacity: 0; } }
 
+/* Appointment selection after a successful quiz submission. */
+.quiz-shell.quiz-shell-booking { max-width: 1060px; scroll-margin-top: 100px; }
+.booking-intro { max-width: 58ch; margin: 12px auto 18px; }
+.booking-fallback { font-size: 14px; color: var(--ink-60); margin-bottom: 20px; }
+.booking-fallback a { color: var(--mint); text-decoration: underline; text-underline-offset: 3px; }
+.booking-calendar { height: 780px; background: #fff; border-radius: 14px; overflow: hidden; text-align: left; }
+.booking-load-error { color: #222; text-align: center; padding: 30px 20px; }
+@media (max-width: 620px) {
+  .quiz-shell.quiz-shell-booking { padding: 24px 8px; }
+  .booking-calendar { height: 860px; }
+}
+
 /* ─ Quiz Shell ─ */
 .quiz-shell {
   max-width: 720px;
@@ -1916,4 +1928,16 @@ body.reading-page {
   .reading-page .article-single-body .ba .col { padding: 22px 20px; }
   .reading-page .article-single-body .ba .big { font-size: 30px; }
   .reading-page .blog-cta-box { padding: 30px 22px; }
+}
+
+.hero h1 .repeat-accent { color: var(--teal); }
+.ceo-card { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(28px, 5vw, 72px); padding: clamp(20px, 4vw, 48px); border: 1px solid var(--line); border-radius: 28px; background: #11151c; }
+.ceo-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; }
+.ceo-copy h2 { margin: 18px 0 8px; }
+.ceo-copy p { color: var(--ink-60); line-height: 1.75; margin: 0 0 18px; }
+.ceo-copy .ceo-role { color: var(--mint); font-size: 13px; letter-spacing: .08em; margin-bottom: 26px; }
+.ceo-copy .btn { margin-top: 10px; }
+@media (max-width: 700px) {
+  .ceo-card { grid-template-columns: 1fr; }
+  .ceo-photo { max-height: 460px; object-position: center 35%; }
 }
