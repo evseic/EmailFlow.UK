@@ -121,7 +121,7 @@ module.exports = async function handler(req, res) {
     if (!supabaseSaved && !telegramSent) {
       return res.status(503).json({
         success: false,
-        error: 'We could not accept your request. Please try again or email hello@emailflow.uk.'
+        error: 'We could not accept your request. Please try again or email info@emailflow.uk.'
       });
     }
 
