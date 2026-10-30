@@ -305,7 +305,7 @@ function renderForm() {
         <div class="field" data-f="phone"><label for="fPhone">Phone number</label><input id="fPhone" required maxlength="80" aria-describedby="fPhoneError" type="tel" placeholder="+44 20 7946 0123" autocomplete="tel"><div class="err" id="fPhoneError"></div></div>
         <div class="field" data-f="website"><label for="fWeb">Website</label><input id="fWeb" required maxlength="2048" aria-describedby="fWebError" type="text" placeholder="your-store.com" autocomplete="url"><div class="err" id="fWebError"></div></div>
       </div>
-      <p class="form-data-note">We use these details to respond to your consultation request. For questions about your data, email <a href="mailto:hello@emailflow.uk">hello@emailflow.uk</a>.</p>
+      <p class="form-data-note">We use these details to respond to your consultation request. For questions about your data, email <a href="mailto:info@emailflow.uk">info@emailflow.uk</a>.</p>
       <p role="alert" id="submitErr" style="display:none;color:var(--stamp);font-size:13px;font-weight:600;margin-top:14px;text-align:center;background:rgba(216,80,43,.08);border:1px solid rgba(216,80,43,.25);border-radius:12px;padding:11px"></p>
       <button class="btn btn-primary" type="submit" id="leadSubmit" style="width:100%;justify-content:space-between;margin-top:22px"><span>Continue to choose a time</span> <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></button>
     </form>
@@ -386,7 +386,7 @@ function renderForm() {
       renderComplete();
     } catch (err) {
       errEl.style.display = 'block';
-      errEl.textContent = 'We could not confirm your request. Please try again or email hello@emailflow.uk.';
+      errEl.textContent = 'We could not confirm your request. Please try again or email info@emailflow.uk.';
       if (btn) { btn.disabled = false; btn.innerHTML = originalButton; }
     } finally {
       isSubmitting = false;
