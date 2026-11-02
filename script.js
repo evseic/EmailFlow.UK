@@ -4,6 +4,19 @@ const $$ = s => [...document.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fmt = n => '£' + Math.round(n).toLocaleString('en-GB');
 
+/* Fetch the overview only when the visitor chooses to play it. */
+const marketingVideo = $('#marketing-video');
+const videoPlay = $('.video-play');
+if (marketingVideo && videoPlay) {
+  videoPlay.hidden = false;
+  videoPlay.addEventListener('click', () => {
+    videoPlay.hidden = true;
+    marketingVideo.focus();
+    marketingVideo.play().catch(() => { videoPlay.hidden = false; });
+  });
+  marketingVideo.addEventListener('play', () => { videoPlay.hidden = true; });
+}
+
 /* ════════ live inbox simulation ════════ */
 const FLOW_ICONS = {
   welcome: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l2.5 5.5L20 10l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-1.5L12 3z" stroke-linejoin="round"/></svg>',
