@@ -1,6 +1,6 @@
 # EmailFlow
 
-> EmailFlow is a London-based email marketing agency serving UK ecommerce stores. We work exclusively with Omnisend. Core services cover lifecycle flows, campaigns, segmentation and deliverability support.
+> EmailFlow is an Omnisend email marketing agency serving UK ecommerce stores. We work exclusively with Omnisend. Core services cover lifecycle flows, campaigns, segmentation and deliverability support.
 
 ## Services
 - [Ecommerce email management](https://www.emailflow.uk/ecommerce-email-marketing-agency/)
@@ -9,7 +9,9 @@
 - [Email automation](https://www.emailflow.uk/email-automation/)
 
 ## Scope and measurement
-Management is advertised at £800/month; the proposal confirms deliverables, campaign frequency, software charges and additional work. Core implementation may follow a seven-day plan after access, content and approvals are ready. Revenue growth, list growth and inbox placement are not guaranteed. Platform-attributed revenue does not establish incremental store growth. Case studies describe individual accounts and should be read with their measurement limitations.
+Management is £800/month excluding VAT, including the Omnisend subscription, with no setup fee, four monthly campaigns and a three-month minimum term; the proposal confirms deliverables, initial flow quantities and any additional work. Core implementation may follow a seven-day plan after access, content and approvals are ready. Revenue growth, list growth and inbox placement are not guaranteed. Platform-attributed revenue does not establish incremental store growth. Case studies describe individual accounts and should be read with their measurement limitations.
+
+Minimum term: three months. Give one month’s notice to end management after the minimum term. On exit, agency-created flows, templates, forms and designs are removed. The client keeps their account, subscriber data and reports.
 
 ## Resources
 - [About and contact](https://www.emailflow.uk/about/)
@@ -18,7 +20,12 @@ Management is advertised at £800/month; the proposal confirms deliverables, cam
 - [Costs and budgeting](https://www.emailflow.uk/blog/email-marketing-pricing/)
 - [Benchmarks and attribution](https://www.emailflow.uk/blog/email-marketing-benchmarks/)
 
+Consultations are free 20-minute calls. The managed service is available to stores with monthly revenue of £10,000 or more; suitability also depends on traffic, permissions, buying cycle, margins and existing performance.
+
 Email: info@emailflow.uk
-Location: London, United Kingdom
+Controller address: Naugarduko g. 15, LT-03226 Vilnius, Lithuania
 
 This optional summary accompanies the public HTML pages. It does not guarantee inclusion in search or AI answers.
+
+## Store starting points
+We support UK ecommerce stores starting email marketing and stores improving an existing Omnisend programme. The homepage calculator uses an illustrative 10% share of store sales, not an Omnisend benchmark or a forecast.

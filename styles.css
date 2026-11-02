@@ -1954,3 +1954,35 @@ body.reading-page {
 .service-link { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 700; }
 .service-link > span { color: var(--mint); font-size: 22px; line-height: 1; }
 @media(max-width:620px) { .services-grid { grid-template-columns: 1fr; } .service-card { padding: 26px; } .service-label { margin-bottom: 20px; } }
+
+/* Four Omnisend services form complete rows. */
+.omnisend-services-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 64px;
+  margin-bottom: 40px;
+}
+.omnisend-services-heading .section-head { margin-bottom: 0; }
+.omnisend-certified-badge { display: block; width: 100%; height: auto; }
+.omnisend-services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media(max-width:760px) {
+  .omnisend-services-heading { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .omnisend-certified-badge { width: 150px; }
+}
+@media(max-width:620px) {
+  .omnisend-services-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Commercial scope and contribution budgeting */
+.scope-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:30px 0}.scope-grid p{line-height:1.7;margin-top:12px}.budget-input{display:block;width:100%;box-sizing:border-box;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0 20px;font:inherit;min-width:0}.budget-input:focus-visible{outline:2px solid var(--teal);outline-offset:3px}.nav-links{gap:16px}.nav .btn{max-width:230px;font-size:13px}.calc-card .v{overflow-wrap:anywhere}@media(max-width:900px){.scope-grid{grid-template-columns:1fr}.nav .btn{max-width:180px}}@media(max-width:600px){.nav .btn{max-width:150px;font-size:11px}.calc-panel{min-width:0}}
+
+.privacy-footer{text-align:center;padding:12px 20px;font-size:14px}.privacy-footer a{color:var(--ink-60)}
+
+/* Keep FAQ questions clickable without the native disclosure triangles. */
+.seo-faq summary{list-style:none}
+.seo-faq summary::-webkit-details-marker{display:none}
+.seo-faq summary::marker{content:""}
+
+/* Keep the navigation consultation CTA on one line. */
+.nav > .btn{white-space:nowrap;max-width:none;flex-shrink:0}

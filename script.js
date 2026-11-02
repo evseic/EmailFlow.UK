@@ -71,19 +71,28 @@ if (!reduced) {
   }
 }
 
-/* ════════ ROI calculator ════════ */
-const range = $('#calcRange');
+/* Plain-language store-sales scenarios and fee comparison */
+const averageOrderInput = $('#calcAverageOrder');
+const storeRevenueInput = $('#calcStoreRevenue');
 function calc() {
-  if (!range) return;
-  const v = +range.value;
-  if ($('#calcRev')) $('#calcRev').textContent = fmt(v);
-  if ($('#calcMo')) $('#calcMo').textContent = fmt(v * .2) + '–' + fmt(v * .3).replace('£', '');
-  if ($('#calcYr')) $('#calcYr').textContent = fmt(v * .2 * 12) + '+';
+  const feeOrders = $('#calcOrders');
+  const emailOrders = $('#calcEmailOrders');
+  const scenarioRevenue = $('#calcScenarioRevenue');
+  if (!averageOrderInput || !feeOrders || !emailOrders || !scenarioRevenue || !storeRevenueInput) return;
+  const averageOrder = Number(averageOrderInput.value);
+  const revenue = Number(storeRevenueInput.value);
+  const share = 10;
+  const validAverage = averageOrderInput.value.trim() !== '' && averageOrderInput.validity.valid && Number.isFinite(averageOrder) && averageOrder > 0;
+  const validRevenue = storeRevenueInput.value.trim() !== '' && storeRevenueInput.validity.valid && Number.isFinite(revenue) && revenue >= 0;
+  const exampleRevenue = revenue * share / 100;
+  const feeCount = Math.ceil(800 / averageOrder);
+  const emailCount = Math.round(exampleRevenue / averageOrder);
+  feeOrders.textContent = validAverage && Number.isFinite(feeCount) ? feeCount.toLocaleString('en-GB') : '—';
+  emailOrders.textContent = validAverage && validRevenue && Number.isFinite(emailCount) ? emailCount.toLocaleString('en-GB') : '—';
+  scenarioRevenue.textContent = validRevenue && Number.isFinite(exampleRevenue) ? fmt(exampleRevenue) + ' in email sales / month in this example' : '—';
 }
-if (range) {
-  range.addEventListener('input', calc);
-  calc();
-}
+[averageOrderInput, storeRevenueInput].forEach(input => input?.addEventListener('input', calc));
+calc();
 
 /* ════════ 7-Day Horizontal Timeline Stepper ════════ */
 const TIMELINE_STEPS = [
@@ -91,7 +100,7 @@ const TIMELINE_STEPS = [
     num: '1',
     day: 'DAY 1',
     title: 'Audit & strategy',
-    blurb: 'Within 24 h we show you where you are losing revenue and map out the exact plan.',
+    blurb: 'Review the current account and agree priorities once access and information are available.',
     items: [
       'Full email channel audit',
       'Deliverability check',
@@ -124,7 +133,7 @@ const TIMELINE_STEPS = [
     num: '5-6',
     day: 'DAY 5–6',
     title: 'Launch & segmentation',
-    blurb: 'The system starts earning automatically — 24/7.',
+    blurb: 'Test customer events, exclusions and message content before the agreed launch.',
     items: [
       'Flows activated and tested',
       'Dynamic behavior-based segmentation',
@@ -137,8 +146,8 @@ const TIMELINE_STEPS = [
     title: 'Launch & monitoring',
     blurb: 'The agreed core flows are tested and ready to launch, subject to approvals.',
     items: [
-      'Launch of all retention automations',
-      'Activation of live results dashboard',
+      'Launch of the agreed core automations',
+      'Confirm reporting access and measurement settings',
       'First reports and results tracking'
     ]
   }
@@ -233,10 +242,10 @@ const REVENUE_Q = 'Monthly revenue';
 const DQ_OPTION = 'Under £10,000';
 
 const QUESTIONS = [
-  { title: REVENUE_Q, sub: 'Roughly what is your average monthly revenue?', opts: [DQ_OPTION, '£10,000 – 20,000', '£20,000 – 50,000', '£50,000+'] },
-  { title: 'Email marketing maturity', sub: 'How are you using email marketing in your business right now?', opts: ['We send campaigns and automated emails are running', 'We occasionally send a newsletter / promo, but no real automations', 'We have a list but barely use it', 'We are not doing email marketing yet'] },
-  { title: 'List size', sub: 'Roughly how big is your email list?', opts: ['1-500', '500-5,000', '5,000-20,000', '20,000+'] },
-  { title: 'Biggest challenge', sub: 'What is your biggest challenge with email marketing right now?', opts: ['Not enough time / resources', 'Low engagement (opens, clicks)', 'No automated flows', 'No clear strategy (what to send, and to whom)'] }
+  { title: REVENUE_Q, sub: 'Roughly what is your average monthly revenue?', opts: [DQ_OPTION, '£10,000 – 20,000', '£20,000 – 50,000', '£50,000+', 'Not sure'] },
+  { title: 'Email marketing maturity', sub: 'How are you using email marketing in your business right now?', opts: ['We send campaigns and automated emails are running', 'We occasionally send a newsletter / promo, but no real automations', 'We have a list but barely use it', 'We are not doing email marketing yet', 'Not sure'] },
+  { title: 'List size', sub: 'Roughly how big is your email list?', opts: ['No email list yet', '1-500', '500-5,000', '5,000-20,000', '20,000+', 'Not sure'] },
+  { title: 'Biggest challenge', sub: 'What is your biggest challenge with email marketing right now?', opts: ['Not enough time / resources', 'Low engagement (opens, clicks)', 'No automated flows', 'No clear strategy (what to send, and to whom)', 'Not sure'] }
 ];
 
 const shell = $('#quizShell');
@@ -250,7 +259,7 @@ function getValidationErrors() {
   const em = contactInfo.email.trim();
   if (!em) errors.email = 'This field is required'; else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) errors.email = 'Invalid email format';
   const digits = contactInfo.phone.replace(/[^\d]/g, '');
-  if (!contactInfo.phone.trim()) errors.phone = 'This field is required'; else if (digits.length < 8) errors.phone = 'Number is too short';
+  if (contactInfo.phone.trim() && digits.length < 8) errors.phone = 'Number is too short';
   const w = contactInfo.website.trim();
   if (!w) errors.website = 'This field is required'; else if (!/\.[a-zA-Z]{2,}/.test(w)) errors.website = 'Enter a domain (e.g. yourstore.com)';
   return errors;
@@ -289,8 +298,8 @@ function renderDQ() {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 16c1-1.5 2.4-2.2 4-2.2s3 .7 4 2.2"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/></svg>
     </div>
     <div class="q-title">Thanks for your interest!</div>
-    <p class="q-sub" style="max-width:46ch;margin:10px auto 6px">Right now we only work with businesses whose monthly revenue exceeds £10,000. At your stage, an investment in email marketing may simply not pay off yet.</p>
-    <p style="color:var(--ink-40);font-size:13.5px;font-weight:500;max-width:46ch;margin:0 auto 22px">Keep growing — and once you reach that milestone, come back. We will help you turn your list into revenue.</p>
+    <p class="q-sub" style="max-width:46ch;margin:10px auto 6px">Our managed service is available to ecommerce stores with monthly revenue of £10,000 or more. Below this threshold, explore our practical guides or contact us with a specific question.</p>
+    <p style="color:var(--ink-40);font-size:13.5px;font-weight:500;max-width:46ch;margin:0 auto 22px">Turnover alone does not establish whether email management will pay for itself. Traffic, permissions, buying cycle and margins also matter.</p>
     <button class="btn btn-ghost" id="qRestart">Start over</button></div>`;
   $('#qRestart').addEventListener('click', () => { answers = {}; currentQ = 0; renderQuiz(); });
 }
@@ -302,10 +311,10 @@ function renderForm() {
       <div style="display:flex;flex-direction:column;gap:14px">
         <div class="field" data-f="name"><label for="fName">Full name</label><input id="fName" required maxlength="200" aria-describedby="fNameError" type="text" placeholder="John Smith" autocomplete="name"><div class="err" id="fNameError"></div></div>
         <div class="field" data-f="email"><label for="fEmail">Email</label><input id="fEmail" required maxlength="254" aria-describedby="fEmailError" type="email" placeholder="name@yourbusiness.com" autocomplete="email"><div class="err" id="fEmailError"></div></div>
-        <div class="field" data-f="phone"><label for="fPhone">Phone number</label><input id="fPhone" required maxlength="80" aria-describedby="fPhoneError" type="tel" placeholder="+44 20 7946 0123" autocomplete="tel"><div class="err" id="fPhoneError"></div></div>
+        <div class="field" data-f="phone"><label for="fPhone">Phone number (optional)</label><input id="fPhone" maxlength="80" aria-describedby="fPhoneError" type="tel" placeholder="+44 20 7946 0123" autocomplete="tel"><div class="err" id="fPhoneError"></div></div>
         <div class="field" data-f="website"><label for="fWeb">Website</label><input id="fWeb" required maxlength="2048" aria-describedby="fWebError" type="text" placeholder="your-store.com" autocomplete="url"><div class="err" id="fWebError"></div></div>
       </div>
-      <p class="form-data-note">We use these details to respond to your consultation request. For questions about your data, email <a href="mailto:info@emailflow.uk">info@emailflow.uk</a>.</p>
+      <p class="form-data-note">Phone is optional; provide it if you want to share a contact number for your enquiry. After acceptance, you will choose a time in Calendly; sending this form does not book an appointment. We use these details to respond to your consultation request. Read our <a href="/privacy/">privacy policy</a>. For questions about your data, email <a href="mailto:info@emailflow.uk">info@emailflow.uk</a>.</p>
       <p role="alert" id="submitErr" style="display:none;color:var(--stamp);font-size:13px;font-weight:600;margin-top:14px;text-align:center;background:rgba(216,80,43,.08);border:1px solid rgba(216,80,43,.25);border-radius:12px;padding:11px"></p>
       <button class="btn btn-primary" type="submit" id="leadSubmit" style="width:100%;justify-content:space-between;margin-top:22px"><span>Continue to choose a time</span> <span class="arrow">${arrowSvg.replace('viewBox', 'width="13" height="13" viewBox')}</span></button>
     </form>
@@ -404,9 +413,9 @@ function renderComplete() {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <h3 class="q-title booking-title" tabindex="-1">Choose your consultation time</h3>
-    <p class="q-sub booking-intro">Your answers have been received. Pick a date and time below to finish booking your free consultation.</p>
+    <p class="q-sub booking-intro">Your answers have been received. Pick a date and time below to finish booking your consultation.</p>
     <p class="booking-fallback">Calendar not loading? <a href="${BOOKING_URL}" target="_blank" rel="noopener noreferrer">Open the booking page in a new tab ↗</a></p>
-    <div id="consultationCalendar" class="booking-calendar" aria-label="Book your free consultation"></div>
+    <div id="consultationCalendar" class="booking-calendar" aria-label="Choose a consultation time"></div>
   </div>`;
   shell.querySelector('.booking-title').focus({ preventScroll: true });
   shell.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
@@ -447,7 +456,7 @@ const FAQS = [
   },
   {
     "q": "Which stores are a good fit?",
-    "a": "Our core service is designed for ecommerce stores with monthly revenue above £10,000. Suitability also depends on list size, consent, purchase frequency and the work required. We assess these during the consultation."
+    "a": "Our core service is designed for ecommerce stores with monthly revenue of £10,000 or more. Suitability also depends on list size, consent, purchase frequency and the work required. We assess these during the consultation."
   },
   {
     "q": "Do I need an existing email list?",
@@ -455,7 +464,7 @@ const FAQS = [
   },
   {
     "q": "How much does email management cost?",
-    "a": "The advertised management fee is £800 per month. Work can include audit, strategy, flow building, copy, design, campaigns, segmentation and reporting. We agree deliverables, campaign frequency, platform charges and any additional costs before work starts."
+    "a": "Management is £800 per month, excluding VAT, including the Omnisend subscription, with no setup fee, four campaigns per month and a minimum term of three months. Initial flow scope and the remaining commercial terms must be confirmed in writing before work starts. See the pricing guide for details."
   },
   {
     "q": "Can you guarantee inbox placement?",
@@ -506,8 +515,8 @@ if (menuBtn && mobileNav && menuIco) {
 
 /* ════════ scrollspy ════════ */
 (function () {
-  const map = { 'how-it-works': null, 'calculator': null, 'tracking': null, 'articles': null, 'faq': null };
-  Object.keys(map).forEach(id => { map[id] = $$(`.nav-links a[href="#${id}"]`); });
+  const map = { 'how-it-works': null, 'calculator': null, 'tracking': null, 'faq': null };
+  Object.keys(map).forEach(id => { map[id] = $$(`.nav-links a[href="#${id}"], .nav-links a[href="/#${id}"]`); });
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
       if (!e.isIntersecting) return;
@@ -517,18 +526,6 @@ if (menuBtn && mobileNav && menuIco) {
   }, { rootMargin: '-40% 0px -55% 0px' });
   Object.keys(map).forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
 })();
-
-/* ════════ calculator -> quiz jump ════════ */
-const calcCta = $('#calcCta');
-if (calcCta && range) {
-  calcCta.addEventListener('click', () => {
-    const v = +range.value;
-    const bucket = v > 50000 ? '£50,000+' : (v > 20000 ? '£20,000 – 50,000' : '£10,000 – 20,000');
-    answers[REVENUE_Q] = bucket;
-    currentQ = 1;
-    renderQuiz();
-  });
-}
 
 /* ════════ scroll progress + inbox tilt ════════ */
 const sb = $('#scrollbar');

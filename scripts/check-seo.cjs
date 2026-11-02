@@ -7,6 +7,17 @@ assert.ok(!locations.includes(base+'/klaviyo-agency/'),'Retired Klaviyo service 
 for(const url of locations){
  const f=new URL(url).pathname.slice(1)+'index.html',s=fs.readFileSync(path.join(root,f),'utf8');
  const title=s.match(/<title>(.*?)<\/title>/)?.[1];assert.ok(title,`${f}: title`);assert.ok(!titles.has(title),`${f}: duplicate title`);titles.add(title);
+ for(const attribute of ['property="og:title"','name="twitter:title"']){
+  assert.ok(s.includes(`${attribute} content="${title}"`),`${f}: social title must match page title`);
+ }
+ // Catch truncated markup before browsers silently repair the service-page structure.
+ const blocks=[];
+ const markup=s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<!--[\s\S]*?-->/g,'');
+ for(const tag of markup.matchAll(/<(\/?)(div|section|main|article|aside|nav|header|footer|h[1-6]|p)\b[^>]*>/gi)){
+  if(!tag[1])blocks.push(tag[2].toLowerCase());
+  else assert.equal(blocks.pop(),tag[2].toLowerCase(),`${f}: incorrectly nested ${tag[0]}`);
+ }
+ assert.equal(blocks.length,0,`${f}: unclosed content elements`);
  const description=s.match(/name="description" content="([^"]*)"/)?.[1];
  assert.ok(description&&description.trim(),`${f}: non-empty description`);
  assert.ok(!descriptions.has(description),`${f}: duplicate description`);descriptions.add(description);
