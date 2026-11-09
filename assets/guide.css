@@ -7,3 +7,5 @@
 .guide-art{background:radial-gradient(ellipse at 60% 40%,#14b8a62b,transparent 70%),#090b0e}
 .guide-book{color:#f4f7f6;background:linear-gradient(165deg,#0c181de8,#11151cf8),url('/assets/guide-editorial-dark.jpg') center/cover;border-inline-start-color:#14b8a6;box-shadow:14px 14px 0 -6px #1a514c,23px 25px 32px #0006}
 .guide-book-kicker{color:#34d399}.guide-book-line{background:#14b8a6}.guide-book-flows span{border-color:#14b8a666;color:#9be6d5;background:#14b8a60c}.guide-book-flows i{background:#14b8a6}.guide-book-caption{color:#a6c6bd}.guide-book-bottom{background:#14b8a6;color:#06241f}.guide-book-brand img{background:#fff;border-radius:4px}
+/* Prevent automatic input zoom in iOS Safari. */
+.guide-dialog input[type=email]{font-size:16px}
