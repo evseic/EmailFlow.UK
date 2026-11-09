@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="application-name" content="EmailFlow">
+  <meta name="apple-mobile-web-app-title" content="EmailFlow">
+  <title>رسائل التذكير بإتمام الشراء للمتاجر الإلكترونية في الإمارات | EmailFlow</title>
+  <meta name="description" content="دليل لإعداد رسائل تذكير بإتمام الشراء لمتجرك في الإمارات، يشمل الأسعار بالدرهم والتوصيل واللغة واختبار الرسائل.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="EmailFlow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ar_AE">
+  <meta property="og:url" content="https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/">
+  <meta property="og:title" content="رسائل التذكير بإتمام الشراء للمتاجر الإلكترونية في الإمارات | EmailFlow">
+  <meta property="og:description" content="دليل لإعداد رسائل تذكير بإتمام الشراء لمتجرك في الإمارات، يشمل الأسعار بالدرهم والتوصيل واللغة واختبار الرسائل.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="رسائل التذكير بإتمام الشراء للمتاجر الإلكترونية في الإمارات | EmailFlow">
+  <meta name="twitter:description" content="دليل لإعداد رسائل تذكير بإتمام الشراء لمتجرك في الإمارات، يشمل الأسعار بالدرهم والتوصيل واللغة واختبار الرسائل.">
+  <!-- Favicon / Meta Icon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@400;500;600;1,400&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@400;500;600;1,400&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Structured Data: BlogPosting & BreadcrumbList -->
+  <style>
+    .article-hero { padding: 50px 0 30px; border-bottom: 1px solid var(--line); margin-bottom: 40px; max-width: 820px; margin-left: auto; margin-right: auto; }
+    .article-hero .crumbs { font-family: var(--mono); font-size: 13px; color: var(--ink-40); margin-bottom: 18px; }
+    .article-hero .crumbs a { color: var(--ink-60); text-decoration: none; }
+    .article-hero .tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); background: var(--mint-soft); padding: 5px 12px; border-radius: 100px; margin-bottom: 16px; }
+    .article-hero h1 { font-family: var(--disp); font-size: clamp(30px, 4.5vw, 44px); font-weight: 700; line-height: 1.25; letter-spacing: -.02em; margin-bottom: 18px; color: var(--ink); }
+    .article-hero .meta { font-family: var(--mono); font-size: 13px; color: var(--ink-40); display: flex; gap: 16px; }
+
+    .article-single-body { max-width: 780px; margin: 0 auto; font-size: 17.5px; line-height: 1.75; color: var(--ink-80); padding-bottom: 40px; }
+    .article-single-body h2 { font-family: var(--disp); font-size: 26px; font-weight: 700; margin: 38px 0 16px; color: var(--ink); letter-spacing: -.01em; }
+    .article-single-body h3 { font-family: var(--disp); font-size: 21px; font-weight: 700; margin: 28px 0 12px; color: var(--ink); }
+    .article-single-body p { margin-bottom: 20px; }
+    .article-single-body ul, .article-single-body ol { margin: 0 0 24px 24px; }
+    .article-single-body li { margin-bottom: 10px; }
+    .article-single-body blockquote { border-left: 4px solid var(--teal); padding: 18px 24px; background: var(--mint-soft); border-radius: 0 14px 14px 0; margin: 28px 0; font-size: 18px; color: var(--teal-deep); }
+
+    .article-single-body .callout { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+    .article-single-body .table-wrap { overflow-x: auto; margin: 24px 0; }
+    .article-single-body table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 15px; }
+    .article-single-body th, .article-single-body td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+    .article-single-body th { background: var(--mint-soft); font-family: var(--disp); font-weight: 700; color: var(--ink); }
+    .article-single-body .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; }
+    .article-single-body .faq-item h3 { margin-top: 0; margin-bottom: 8px; font-size: 18px; }
+
+    .blog-cta-box { background: linear-gradient(135deg, var(--ink), #18373C); color: #fff; padding: 44px 32px; border-radius: 24px; margin: 60px auto 0; max-width: 780px; text-align: center; }
+    .blog-cta-box h3 { font-family: var(--disp); font-size: 28px; color: #fff; margin-bottom: 12px; }
+    .blog-cta-box p { color: rgba(255,255,255,.8); font-size: 16.5px; max-width: 52ch; margin: 0 auto 26px; line-height: 1.6; }
+  </style>
+  <!-- Structured Data: Organization -->
+  <meta property="og:image" content="https://www.emailflow.uk/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EmailFlow — ecommerce email marketing, Omnisend">
+  <meta name="twitter:image" content="https://www.emailflow.uk/assets/social-preview.png">
+  <meta name="twitter:image:alt" content="EmailFlow ecommerce email marketing">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.emailflow.uk/#organization",
+  "name": "EmailFlow",
+  "url": "https://www.emailflow.uk/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.emailflow.uk/assets/logo.png",
+    "width": 256,
+    "height": 256
+  },
+  "description": "EmailFlow is an Omnisend email marketing agency serving UK and UAE ecommerce stores remotely.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Naugarduko g. 15",
+    "addressLocality": "Vilnius",
+    "postalCode": "LT-03226",
+    "addressCountry": "LT"
+  },
+  "email": "info@emailflow.uk",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    {
+      "@type": "Country",
+      "name": "United Arab Emirates"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الإمارات",
+      "item": "https://www.emailflow.uk/uae/ar/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "رسائل التذكير بإتمام الشراء للمتاجر الإلكترونية في الإمارات",
+      "item": "https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "رسائل التذكير بإتمام الشراء للمتاجر الإلكترونية في الإمارات",
+  "description": "دليل لإعداد رسائل تذكير بإتمام الشراء لمتجرك في الإمارات، يشمل الأسعار بالدرهم والتوصيل واللغة واختبار الرسائل.",
+  "url": "https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/"
+  },
+  "datePublished": "2026-11-09",
+  "dateModified": "2026-11-09",
+  "inLanguage": "ar-AE",
+  "author": {
+    "@type": "Organization",
+    "@id": "https://www.emailflow.uk/#organization",
+    "name": "EmailFlow",
+    "url": "https://www.emailflow.uk/about/"
+  },
+  "publisher": {
+    "@id": "https://www.emailflow.uk/#organization"
+  },
+  "image": "https://www.emailflow.uk/assets/social-preview.png"
+}
+</script>
+<link rel="stylesheet" href="/assets/arabic.css">
+<link rel="alternate" hreflang="en-AE" href="https://www.emailflow.uk/uae/blog/abandoned-checkout-emails/">
+<link rel="alternate" hreflang="ar-AE" href="https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/">
+<link rel="alternate" hreflang="x-default" href="https://www.emailflow.uk/uae/blog/abandoned-checkout-emails/">
+<link rel="stylesheet" href="/assets/guide.css">
+</head>
+<body class="reading-page">
+<a class="skip-link" href="#main-content">انتقل إلى المحتوى</a>
+
+
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="/" aria-label="الصفحة الرئيسية لـ EmailFlow">
+        <img class="brand-mark" src="/assets/logo.png" width="36" height="36" alt="" aria-hidden="true" decoding="async">
+        <span class="wordmark"><span class="email-part">Email</span><span class="flow-part">Flow</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="/uae/ar/#how-it-works">كيف نعمل</a>
+        <a href="/uae/ar/#scope">الأسعار</a>
+        <a href="/uae/ar/#uae-market">إدارة الخدمة</a>
+        <a href="/uae/ar/case-studies/" class="">دراسات الحالة</a>
+        <a href="/uae/ar/blog/" class="active">الأدلة</a>
+        <a href="/uae/ar/#faq">أسئلة شائعة</a>
+      </nav>
+      <nav class="header-language" aria-label="اختيار اللغة" dir="ltr"><a href="/uae/blog/abandoned-checkout-emails/" lang="en" hreflang="en">EN</a><a href="/uae/ar/blog/abandoned-checkout-emails/" lang="ar" hreflang="ar" aria-current="page">العربية</a></nav>
+      <a class="btn btn-primary" href="/uae/ar/#consultation">اطلب استشارة
+        <span class="arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="القائمة" aria-expanded="false">
+        <svg id="menuIco" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="inner">
+        <a href="/uae/ar/#how-it-works">كيف نعمل</a>
+        <a href="/uae/ar/#scope">الأسعار</a>
+        <a href="/uae/ar/#uae-market">إدارة الخدمة</a>
+        <a href="/uae/ar/case-studies/">دراسات الحالة</a>
+        <a href="/uae/ar/blog/">الأدلة</a>
+        <a href="/uae/ar/#faq">أسئلة شائعة</a>
+        <a class="btn btn-primary" href="/uae/ar/#consultation">اطلب استشارة
+          <span class="arrow">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main-content" class="wrap" style="padding-bottom:90px"><section class="article-hero"><nav class="crumbs"><a href="/uae/ar/">الإمارات</a> / <a href="/uae/ar/blog/">الأدلة</a></nav><span class="tag">دليل للمتاجر في الإمارات</span><h1>رسائل التذكير بإتمام الشراء للمتاجر الإلكترونية في الإمارات</h1><div class="meta"><span>نُشر في 9 نوفمبر 2026</span><a href="/about/" hreflang="en" rel="author">EmailFlow</a></div></section><article class="article-single-body"><p>تساعد رسالة التذكير بإتمام الشراء العميل على العودة إلى طلب كان يفكر فيه بالفعل. ابدأ بتجربة الدفع نفسها: يجب أن تبقى العملة والتوصيل وطرق الدفع واللغة واضحة ومتسقة عند عودة العميل.</p><h2>عالج أسئلة الدفع أولاً</h2><p>راجع تجربة الهاتف قبل كتابة الرسائل. هل يظهر الإجمالي النهائي بالدرهم؟ وهل يستطيع العميل معرفة تكلفة التوصيل إلى عنوانه وطرق الدفع المتاحة؟ إذا تكرر سؤال في خدمة العملاء، فأجب عنه على الموقع واربط الرسالة بالإجابة.</p><p>تحقق من مناطق التوصيل التي تخدمها فعلياً. لا تَعِد بمدة توصيل واحدة في دبي وأبوظبي وبقية الإمارات إلا إذا كان فريق تجهيز الطلبات يستطيع الوفاء بها.</p><h2>أنشئ سلسلة قصيرة بهدف واضح</h2><ol><li><strong>التذكير:</strong> عرض المنتجات ورابط واضح للعودة إلى الدفع، مع مراعاة أن العميل قد يكون ما زال يقارن بين الخيارات.</li><li><strong>المساعدة:</strong> الإجابة عن عائق حقيقي مثل المقاسات أو سياسة التوصيل أو طريقة التواصل مع الدعم.</li><li><strong>عرض اختياري:</strong> استخدام خصم فقط إذا سمحت الهوامش والقواعد، مع توضيح الصلاحية والاستثناءات والحد الأدنى للطلب.</li></ol><p>اختبر الفواصل الزمنية وفق دورة الشراء في متجرك. لا يوجد توقيت واحد يناسب كل المتاجر في الإمارات. وقد تتطلب المنتجات مرتفعة السعر وقتاً أطول للتفكير مقارنة بمنتج يُشترى بانتظام. راعِ تداخل التذكيرات مع الحملات الأخرى.</p><h2>حافظ على اتساق العملة واللغة</h2><p>اختبر أسعار المنتجات والخصومات وروابط الدفع بالعملة المناسبة للعميل. يجب أن يتطابق العرض في الرسالة مع صفحة الدفع، من دون انتقال غير متوقع إلى عملة أخرى.</p><p>عند استخدام العربية والإنجليزية، اعتمد على تفضيل مسجل أو اختيار صريح من العميل، ولا تستنتج اللغة من الاسم. اطلب مراجعة النص العربي من شخص متمكّن من اللغة واختبر اتجاه النص والأرقام والأزرار وعلامات الترقيم على الهاتف.</p><h2>اضبط شروط الخروج والاستبعاد في Omnisend</h2><p>حدّد الحدث الذي يبدأ المسار والجمهور المؤهل والحدث الذي يوقف الرسائل بعد الشراء. تأكد من عدم إرسال تذكيرات متداخلة لإتمام الطلب نفسه، وراجع موافقات التسويق وقوائم الاستبعاد قبل التفعيل.</p><p>اختبر توقيت الأحداث واستعادة الطلب باستخدام تكامل متجرك الفعلي؛ فظهور القالب بشكل جيد في المحرر لا يعني أن المسار يعمل بصورة صحيحة.</p><h2>قائمة فحص قبل الإطلاق</h2><ul><li>أكمل طلباً تجريبياً وتأكد من توقف التذكيرات اللاحقة.</li><li>افتح رابط الاستعادة على الهاتف وافحص المنتجات والخيارات والإجمالي بالدرهم.</li><li>اختبر الخصم والاستثناءات والحد الأدنى للطلب.</li><li>تحقق من روابط الدعم ومعلومات التوصيل وإلغاء الاشتراك.</li><li>راجع النسختين اللغويتين إذا كانت الخدمة تشمل رسائل ثنائية اللغة.</li></ul><h2>قِس الطلبات إلى جانب التكلفة</h2><p>راجع التسليم والنقرات والطلبات وإلغاء الاشتراك والإيرادات المنسوبة إلى البريد الإلكتروني ضمن فترة ثابتة، مع احتساب الخصومات والتنفيذ والإدارة. لا يثبت إسناد المنصة للطلبات أن كل طلب مسجّل نتج عن الرسالة.</p><p>اقرأ <a href="/blog/abandoned-cart-emails/" hreflang="en">الدليل العام باللغة الإنجليزية</a> أو <a href="/uae/ar/#consultation">ناقش معنا مراجعة تجربة الدفع لمتجرك</a>.</p><p><a href="/uae/ar/blog/">جميع الأدلة</a> · <a href="/uae/ar/">خدماتنا في الإمارات</a></p></article><div class="blog-cta-box"><h3>خطّط للخطوة التالية لمتجرك</h3><p>ناقش جمهورك وبرنامج التسويق بالبريد الإلكتروني الحالي واحتياجات اللغة في استشارة أولية مجانية.</p><a class="btn btn-primary" href="/uae/ar/#consultation">اطلب استشارة</a></div></main>
+
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="col">
+          <a class="logo" href="/" aria-label="EmailFlow">
+            <img class="brand-mark" src="/assets/logo.png" width="36" height="36" alt="" aria-hidden="true" decoding="async">
+            <span class="wordmark"><span class="email-part">Email</span><span class="flow-part">Flow</span></span>
+          </a>
+          <p>التسويق عبر البريد الإلكتروني لمتاجر المملكة المتحدة والإمارات.</p>
+        </div>
+        <div class="col">
+          <strong>روابط الموقع</strong>
+          <p><a href="/uae/ar/#how-it-works" style="text-decoration:none;color:inherit;">كيف نعمل</a></p>
+          <p><a href="/uae/ar/#scope" style="text-decoration:none;color:inherit;">النطاق والأسعار</a></p>
+          <p><a href="/uae/ar/#uae-market" style="text-decoration:none;color:inherit;">إدارة الخدمة</a></p>
+          <p><a href="/uae/ar/blog/" style="text-decoration:none;color:inherit;">أدلة التسويق عبر البريد الإلكتروني</a></p>
+        </div>
+        <div class="col">
+          <strong>تواصل معنا</strong>
+          <p>خطّط للتسويق عبر البريد الإلكتروني مع EmailFlow.</p>
+          <p><a href="mailto:info@emailflow.uk" style="color:var(--teal);font-weight:600;">info@emailflow.uk</a></p>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 EmailFlow. جميع الحقوق محفوظة.</span>
+        <span>أنظمة البريد الإلكتروني للمتاجر</span>
+      </div>
+    </div>
+  <p class="privacy-footer"><a href="/privacy/">سياسة الخصوصية (بالإنجليزية)</a></p>
+  </footer>
+
+
+  <script src="/script.js" defer></script>
+<noscript><style>.reveal,.rise{opacity:1!important;transform:none!important;filter:none!important}.faq-a{max-height:none!important}</style><p class="no-script-contact">لطلب استشارة، راسل <a href="mailto:info@emailflow.uk">info@emailflow.uk</a>.</p></noscript>
+<script type="module" src="/assets/analytics.js"></script>
+<script src="/assets/guide.js" defer></script>
+</body>
+</html>

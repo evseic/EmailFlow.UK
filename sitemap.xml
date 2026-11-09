@@ -27,11 +27,16 @@
   </url>
   <url>
     <loc>https://www.emailflow.uk/blog/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://www.emailflow.uk/case-studies/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.emailflow.uk/uae/</loc>
+    <lastmod>2026-11-09</lastmod>
   </url>
 
   <!-- Blog Articles -->
@@ -108,5 +113,49 @@
   <url>
     <loc>https://www.emailflow.uk/blog/measure-email-revenue/</loc>
     <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/blog/email-marketing-pricing/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/blog/abandoned-checkout-emails/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/blog/ramadan-eid-email-campaigns/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/blog/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/case-studies/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/ar/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/ar/blog/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/ar/case-studies/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/ar/blog/email-marketing-pricing/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/ar/blog/abandoned-checkout-emails/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.emailflow.uk/uae/ar/blog/ramadan-eid-email-campaigns/</loc>
+    <lastmod>2026-11-09</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,1 @@
+Original educational EmailFlow templates. Replace all placeholders, links and images with approved information; add a business address and working unsubscribe link to marketing. Never send unchanged. Concept images are not client products.

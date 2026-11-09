@@ -7,13 +7,33 @@ assert.ok(!locations.includes(base+'/klaviyo-agency/'),'Retired Klaviyo service 
 for(const url of locations){
  const f=new URL(url).pathname.slice(1)+'index.html',s=fs.readFileSync(path.join(root,f),'utf8');
  const title=s.match(/<title>(.*?)<\/title>/)?.[1];assert.ok(title,`${f}: title`);assert.ok(!titles.has(title),`${f}: duplicate title`);titles.add(title);
+ for(const attribute of ['property="og:title"','name="twitter:title"']){
+  assert.ok(s.includes(`${attribute} content="${title}"`),`${f}: social title must match page title`);
+ }
+ // Catch truncated markup before browsers silently repair the service-page structure.
+ const blocks=[];
+ const markup=s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<!--[\s\S]*?-->/g,'');
+ for(const tag of markup.matchAll(/<(\/?)(div|section|main|article|aside|nav|header|footer|h[1-6]|p)\b[^>]*>/gi)){
+  if(!tag[1])blocks.push(tag[2].toLowerCase());
+  else assert.equal(blocks.pop(),tag[2].toLowerCase(),`${f}: incorrectly nested ${tag[0]}`);
+ }
+ assert.equal(blocks.length,0,`${f}: unclosed content elements`);
  const description=s.match(/name="description" content="([^"]*)"/)?.[1];
  assert.ok(description&&description.trim(),`${f}: non-empty description`);
  assert.ok(!descriptions.has(description),`${f}: duplicate description`);descriptions.add(description);
  assert.equal((s.match(/rel="canonical"/g)||[]).length,1,`${f}: one canonical`);
  assert.ok(!/<meta name="robots" content="[^"]*noindex/.test(s),`${f}: canonical page accidentally noindexed`);
- assert.ok(s.includes('<html lang="en">'),`${f}: document language`);
+ assert.ok(s.includes(f.startsWith('uae/ar/') ? '<html lang="ar" dir="rtl">' : '<html lang="en">'),`${f}: document language and direction`);
  assert.ok(s.includes('property="og:site_name" content="EmailFlow"'),`${f}: consistent brand name`);
+ if(f.startsWith('uae/')){
+  const alternates=[...s.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)];
+  assert.deepEqual(alternates.map(m=>m[1]).sort(),['ar-AE','en-AE','x-default'],f+': regional language alternates');
+  for(const m of alternates){
+   const target=fs.readFileSync(path.join(root,new URL(m[2]).pathname.slice(1),'index.html'),'utf8');
+   assert.ok(target.includes('href="'+url+'"'),f+': reciprocal alternate '+m[1]);
+  }
+  if(f.startsWith('uae/ar/'))assert.ok(s.includes('href="/assets/arabic.css"'),f+': Arabic typography');
+ }
  const ids=[...s.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(new Set(ids).size,ids.length,`${f}: duplicate HTML IDs`);
  assert.equal((s.match(/<h1\b/g)||[]).length,1,`${f}: one H1`);
@@ -39,7 +59,7 @@ for(const url of locations){
   if(u.hash&&fs.statSync(dest).isFile()&&dest.endsWith('.html')){const target=fs.readFileSync(dest,'utf8');assert.ok(target.includes('id="'+decodeURIComponent(u.hash.slice(1))+'"'),`${f}: missing anchor ${h}`);}
  }
 }
-for(const privatePath of ['docs','scripts','tests','server.js','api','.env.example','package.json'])assert.ok(!fs.existsSync(path.join(root,privatePath)),`${privatePath} leaked into public output`);
+for(const privatePath of ['docs','scripts','tests','emails','server.js','api','.env.local','.env.example','package.json'])assert.ok(!fs.existsSync(path.join(root,privatePath)),`${privatePath} leaked into public output`);
 const home=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.equal((home.match(/class="seo-faq"/g)||[]).length,6);
 assert.ok(!home.includes('+20%<br>revenue'));assert.ok(!home.includes('Trusted by 50+'));
 const logo=fs.readFileSync(path.join(root,'assets/logo.png'));

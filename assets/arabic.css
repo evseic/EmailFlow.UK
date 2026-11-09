@@ -1,0 +1,11 @@
+/* Scoped Arabic typography and RTL support. Shared components retain the main design. */
+html[lang="ar"] body { font-family: Tahoma, Arial, sans-serif; }
+html[lang="ar"] :is(h1,h2,h3,h4,.btn,.eyebrow,.tag,.article-tag,.case-tag,.crumbs,.meta,.article-foot,.case-more) { font-family: Tahoma, Arial, sans-serif; letter-spacing: 0; }
+html[lang="ar"] :is(p,li) { line-height: 1.9; }
+html[lang="ar"] :is(.article-single-body,.section-head,.hero,.blog-hero,.case-hero) { text-align: start; }
+html[lang="ar"] .wordmark { direction: ltr; unicode-bidi: isolate; display: inline-flex; }
+html[lang="ar"] .article-single-body :is(ul,ol) { margin: 0 24px 24px 0; }
+html[lang="ar"] .article-single-body blockquote { border-left: 0; border-right: 4px solid var(--teal); }
+html[lang="ar"] .btn svg { transform: scaleX(-1); }
+html[lang="ar"] .article-hero h1 { line-height: 1.5; }
+html[lang="ar"] a[href^="mailto:"] { unicode-bidi: isolate; }
