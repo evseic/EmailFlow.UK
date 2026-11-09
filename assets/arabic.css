@@ -9,3 +9,9 @@ html[lang="ar"] .article-single-body blockquote { border-left: 0; border-right: 
 html[lang="ar"] .btn svg { transform: scaleX(-1); }
 html[lang="ar"] .article-hero h1 { line-height: 1.5; }
 html[lang="ar"] a[href^="mailto:"] { unicode-bidi: isolate; }
+/* Preserve the shared components while aligning Arabic controls correctly. */
+html[lang="ar"] .btn-primary .arrow{margin:-6px 0 -6px -12px;flex-shrink:0}
+html[lang="ar"] .btn-primary:hover .arrow{transform:translateX(-3px)}
+html[lang="ar"] .t-arr svg{transform:scaleX(-1)}
+html[lang="ar"] :is(.sum,.amt,.service-card h3){unicode-bidi:isolate}
+html[lang="ar"] .budget-input{direction:ltr;text-align:right}

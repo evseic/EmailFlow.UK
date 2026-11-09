@@ -2,7 +2,9 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const fmt = n => '£' + Math.round(n).toLocaleString('en-GB');
+const isUaeMarket = document.body.dataset.market === 'uae';
+const managementFee = isUaeMarket ? 3930 : 800;
+const fmt = n => (isUaeMarket ? 'AED ' : '£') + Math.round(n).toLocaleString('en-GB');
 
 /* Fetch the overview only when the visitor chooses to play it. */
 const marketingVideo = $('#marketing-video');
@@ -98,7 +100,7 @@ function calc() {
   const validAverage = averageOrderInput.value.trim() !== '' && averageOrderInput.validity.valid && Number.isFinite(averageOrder) && averageOrder > 0;
   const validRevenue = storeRevenueInput.value.trim() !== '' && storeRevenueInput.validity.valid && Number.isFinite(revenue) && revenue >= 0;
   const exampleRevenue = revenue * share / 100;
-  const feeCount = Math.ceil(800 / averageOrder);
+  const feeCount = Math.ceil(managementFee / averageOrder);
   const emailCount = Math.round(exampleRevenue / averageOrder);
   feeOrders.textContent = validAverage && Number.isFinite(feeCount) ? feeCount.toLocaleString('en-GB') : '—';
   emailOrders.textContent = validAverage && validRevenue && Number.isFinite(emailCount) ? emailCount.toLocaleString('en-GB') : '—';
@@ -251,7 +253,6 @@ const rObs = new IntersectionObserver(es => es.forEach(e => {
 $$('.reveal').forEach(el => rObs.observe(el));
 
 /* ════════ quiz funnel ════════ */
-const isUaeMarket = document.body.dataset.market === 'uae';
 const REVENUE_Q = 'Monthly revenue';
 const DQ_OPTION = isUaeMarket ? 'Under AED 49,100' : 'Under £10,000';
 
