@@ -342,15 +342,17 @@
 
   <section class="section" id="calculator">
     <div class="wrap"><div class="calc reveal">
-      <div><span class="eyebrow">Simple order calculator</span><h2>See what email could look like for your store.</h2><p class="note">No email marketing yet? Or unsure whether yours is working? Start with your store’s monthly sales and average order amount. See an example where email accounts for 10% of sales.</p><a class="btn btn-primary" href="/#consultation">Book a Consultation</a></div>
-      <div class="calc-panel">
-        <span class="lbl">Monthly management fee</span><div class="calc-rev">£800</div>
-        <label class="lbl" for="calcStoreRevenue">Your monthly store sales (£)</label><input class="budget-input" id="calcStoreRevenue" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 20000">
-        <label class="lbl" for="calcAverageOrder">Your average order amount (£)</label><input class="budget-input" id="calcAverageOrder" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 50">
-        <p class="calc-foot">Example: email accounts for <strong>10% of store sales</strong>.</p>
-        <div class="calc-out" aria-live="polite"><div class="calc-card"><div class="v" id="calcEmailOrders">—</div><div class="k">orders credited to email in this example</div><div id="calcScenarioRevenue">—</div></div><div class="calc-card"><div class="v" id="calcOrders">—</div><div class="k">extra orders to match the £800 fee in sales</div></div></div>
-        <p class="calc-foot">Examples, not promised results. Sales credited to email may include orders you would have received anyway. Matching the fee in sales does not cover product costs, other expenses or VAT. Omnisend subscription included.</p>
-        <details class="calc-foot"><summary>How this is calculated</summary><p>Example email sales = monthly store sales × 10%. Order estimate = example email sales ÷ average order amount, rounded to the nearest order. Fee comparison = £800 ÷ average order amount, rounded up. The 10% share is an assumption, not an industry average.</p><p>Omnisend’s separate 30% figure describes automations’ share of email revenue, not email’s share of total store sales. It is not used to set these examples. <a href="https://www.omnisend.com/resources/reports/2026-ecommerce-marketing-report/">Read Omnisend’s report</a>.</p></details>
+      <div class="calc-intro"><span class="eyebrow">Email revenue calculator</span><h2>What could email <span class="accent-mint">earn for your store?</span></h2><p class="note">Move the slider to explore a scenario where email accounts for 20–30% of your store’s sales.</p><a class="btn btn-primary" href="/#consultation">Book a Consultation<span class="arrow" aria-hidden="true">→</span></a></div>
+      <div class="calc-panel" data-email-calculator data-currency="GBP" data-language="en">
+        <label class="lbl" for="calcRange">Your monthly store sales</label>
+        <output class="calc-rev" id="calcRevenue" for="calcRange">£20,000</output>
+        <input id="calcRange" type="range" min="10000" max="200000" step="1000" value="20000" aria-describedby="calcAssumptions">
+        <div class="calc-limits" aria-hidden="true"><span>£10,000</span><span>£200,000</span></div>
+        <div class="calc-out" aria-live="polite" aria-atomic="true">
+          <div class="calc-card"><div class="v" id="calcMonthly">£4,000–6,000</div><div class="k">monthly email revenue in the 20–30% scenario</div></div>
+          <div class="calc-card"><div class="v" id="calcAnnual">£48,000</div><div class="k">annual email revenue at the 20% scenario</div></div>
+        </div>
+        <p class="calc-foot" id="calcAssumptions">Illustrative scenario, not a forecast or guarantee. Annual figure = monthly sales × 20% × 12. Email-attributed revenue is not necessarily additional sales or profit.</p>
       </div>
     </div></div>
   </section>
@@ -559,6 +561,7 @@
   <script src="script.js" defer></script>
 <noscript><style>.reveal,.rise{opacity:1!important;transform:none!important;filter:none!important}.faq-a{max-height:none!important}</style><p class="no-script-contact">For a consultation, email <a href="mailto:info@emailflow.uk">info@emailflow.uk</a>.</p></noscript>
 <script type="module" src="/assets/analytics.js"></script>
+<script src="/assets/calculator.js" defer></script>
 <script src="/assets/guide.js" defer></script>
 </body>
 </html>

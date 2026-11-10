@@ -3,7 +3,6 @@ const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isUaeMarket = document.body.dataset.market === 'uae';
-const managementFee = isUaeMarket ? 3930 : 800;
 const fmt = n => (isUaeMarket ? 'درهم ' : '£') + Math.round(n).toLocaleString('en-GB');
 
 /* Fetch the overview only when the visitor chooses to play it. */
@@ -85,29 +84,6 @@ if (!reduced) {
     inboxEl.addEventListener('mouseleave', () => { clearTimeout(inboxTimer); inboxTimer = setTimeout(tick, 1200); });
   }
 }
-
-/* Plain-language store-sales scenarios and fee comparison */
-const averageOrderInput = $('#calcAverageOrder');
-const storeRevenueInput = $('#calcStoreRevenue');
-function calc() {
-  const feeOrders = $('#calcOrders');
-  const emailOrders = $('#calcEmailOrders');
-  const scenarioRevenue = $('#calcScenarioRevenue');
-  if (!averageOrderInput || !feeOrders || !emailOrders || !scenarioRevenue || !storeRevenueInput) return;
-  const averageOrder = Number(averageOrderInput.value);
-  const revenue = Number(storeRevenueInput.value);
-  const share = 10;
-  const validAverage = averageOrderInput.value.trim() !== '' && averageOrderInput.validity.valid && Number.isFinite(averageOrder) && averageOrder > 0;
-  const validRevenue = storeRevenueInput.value.trim() !== '' && storeRevenueInput.validity.valid && Number.isFinite(revenue) && revenue >= 0;
-  const exampleRevenue = revenue * share / 100;
-  const feeCount = Math.ceil(managementFee / averageOrder);
-  const emailCount = Math.round(exampleRevenue / averageOrder);
-  feeOrders.textContent = validAverage && Number.isFinite(feeCount) ? feeCount.toLocaleString('en-GB') : '—';
-  emailOrders.textContent = validAverage && validRevenue && Number.isFinite(emailCount) ? emailCount.toLocaleString('en-GB') : '—';
-  scenarioRevenue.textContent = validRevenue && Number.isFinite(exampleRevenue) ? fmt(exampleRevenue) + " مبيعات بريد شهرياً في هذا المثال" : '—';
-}
-[averageOrderInput, storeRevenueInput].forEach(input => input?.addEventListener('input', calc));
-calc();
 
 /* ════════ 7-Day Horizontal Timeline Stepper ════════ */
 const TIMELINE_STEPS = [

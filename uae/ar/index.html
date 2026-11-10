@@ -345,15 +345,17 @@
 
   <section class="section" id="calculator">
     <div class="wrap"><div class="calc reveal">
-      <div><span class="eyebrow">حاسبة طلبات مبسطة</span><h2>اكتشف ما قد يقدّمه البريد لمتجرك.</h2><p class="note">لم تبدأ التسويق بالبريد بعد، أو لست متأكداً من نتائجه؟ أدخل مبيعاتك الشهرية ومتوسط قيمة الطلب لعرض مثال تُنسب فيه 10% من المبيعات إلى البريد.</p><a class="btn btn-primary" href="/uae/ar/#consultation">احجز استشارة</a></div>
-      <div class="calc-panel">
-        <span class="lbl">رسوم الإدارة الشهرية</span><div class="calc-rev">3,930 درهماً</div>
-        <label class="lbl" for="calcStoreRevenue">مبيعات متجرك الشهرية (درهم)</label><input class="budget-input" id="calcStoreRevenue" type="number" min="0" step="any" inputmode="decimal" placeholder="مثال: 100000">
-        <label class="lbl" for="calcAverageOrder">متوسط قيمة الطلب (درهم)</label><input class="budget-input" id="calcAverageOrder" type="number" min="0.01" step="any" inputmode="decimal" placeholder="مثال: 250">
-        <p class="calc-foot">مثال: تُنسب إلى البريد <strong>10% من مبيعات المتجر</strong>.</p>
-        <div class="calc-out" aria-live="polite"><div class="calc-card"><div class="v" id="calcEmailOrders">—</div><div class="k">طلبات منسوبة للبريد في هذا المثال</div><div id="calcScenarioRevenue">—</div></div><div class="calc-card"><div class="v" id="calcOrders">—</div><div class="k">طلبات إضافية تعادل رسوم الإدارة البالغة 3,930 درهماً من حيث المبيعات</div></div></div>
-        <p class="calc-foot">أمثلة وليست نتائج مضمونة. قد تشمل المبيعات المنسوبة للبريد طلبات كانت ستحدث على أي حال. معادلة الرسوم بالمبيعات لا تغطي تكلفة المنتجات أو المصاريف الأخرى أو ضريبة القيمة المضافة. يشمل السعر اشتراك Omnisend.</p>
-        <details class="calc-foot"><summary>طريقة الحساب</summary><p>مبيعات البريد في المثال = مبيعات المتجر الشهرية × 10%. عدد الطلبات = مبيعات البريد ÷ متوسط قيمة الطلب، مع التقريب لأقرب طلب. مقارنة الرسوم = 3,930 درهماً ÷ متوسط قيمة الطلب، مع التقريب للأعلى. نسبة 10% افتراض توضيحي وليست متوسطاً للقطاع.</p><p>تشير نسبة 30% الواردة في تقرير Omnisend إلى حصة الأتمتة من إيرادات البريد، وليس حصة البريد من إجمالي مبيعات المتجر. لم نستخدمها لحساب هذه الأمثلة. <a href="https://www.omnisend.com/resources/reports/2026-ecommerce-marketing-report/">اقرأ تقرير Omnisend</a>.</p></details>
+      <div class="calc-intro"><span class="eyebrow">حاسبة إيرادات البريد</span><h2>ما الذي يمكن للبريد <span class="accent-mint">أن يحققه لمتجرك؟</span></h2><p class="note">حرّك المؤشر لاستكشاف سيناريو تُنسب فيه 20–30% من مبيعات متجرك إلى البريد الإلكتروني.</p><a class="btn btn-primary" href="/uae/ar/#consultation">احجز استشارة<span class="arrow" aria-hidden="true">←</span></a></div>
+      <div class="calc-panel" data-email-calculator data-currency="AED" data-language="ar">
+        <label class="lbl" for="calcRange">مبيعات متجرك الشهرية</label>
+        <output class="calc-rev" id="calcRevenue" for="calcRange">100,000 درهم</output>
+        <input id="calcRange" type="range" min="50000" max="1000000" step="5000" value="100000" aria-describedby="calcAssumptions">
+        <div class="calc-limits" aria-hidden="true"><span>50,000 درهم</span><span>1,000,000 درهم</span></div>
+        <div class="calc-out" aria-live="polite" aria-atomic="true">
+          <div class="calc-card"><div class="v" id="calcMonthly">20,000–30,000 درهم</div><div class="k">إيرادات البريد الشهرية في سيناريو 20–30%</div></div>
+          <div class="calc-card"><div class="v" id="calcAnnual">240,000 درهم</div><div class="k">إيرادات البريد السنوية عند نسبة 20%</div></div>
+        </div>
+        <p class="calc-foot" id="calcAssumptions">مثال حسابي وليس توقعاً أو ضماناً. الرقم السنوي = المبيعات الشهرية × 20% × 12. الإيرادات المنسوبة للبريد ليست بالضرورة مبيعات إضافية أو أرباحاً.</p>
       </div>
     </div></div>
   </section>
@@ -562,6 +564,7 @@
   <script src="/assets/home-ar.js" defer></script>
 <noscript><style>.reveal,.rise{opacity:1!important;transform:none!important;filter:none!important}.faq-a{max-height:none!important}</style><p class="no-script-contact">للاستشارة، راسلنا على <a href="mailto:info@emailflow.uk">info@emailflow.uk</a>.</p></noscript>
 <script type="module" src="/assets/analytics.js"></script>
+<script src="/assets/calculator.js" defer></script>
 <script src="/assets/guide.js" defer></script>
 </body>
 </html>
