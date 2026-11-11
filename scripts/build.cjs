@@ -4,7 +4,7 @@ const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist');
 const pages = [...fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)]
   .map(match => new URL(match[1]).pathname.replace(/^\//, '') + 'index.html');
-const publicFiles = [...pages, 'styles.css', 'script.js', 'robots.txt', 'sitemap.xml', 'llms.txt', 'privacy/index.html',
+const publicFiles = [...pages, ...fs.readdirSync(path.join(root, 'assets/avatars')).map(name => 'assets/avatars/' + name), 'styles.css', 'script.js', 'robots.txt', 'sitemap.xml', 'llms.txt', 'privacy/index.html',
   'favicon.png', 'favicon.svg', 'apple-touch-icon.png', 'assets/social-preview.png', 'assets/logo.png', 'assets/omnisend-product-certified.png', 'assets/nick-ceo.png', 'assets/email-flow-audit-checklist.txt', 'assets/analytics.js', 'assets/calculator.js', 'assets/home-ar.js', 'assets/arabic.css', 'assets/guide.css', 'assets/guide.js', 'assets/guide-playbook.css', 'assets/guide-playbook.js', 'guides/email-templates-en.zip', 'guides/email-templates-ar.zip', ...fs.readdirSync(path.join(root, 'assets/guide-visuals')).map(name => 'assets/guide-visuals/' + name), 'assets/omnisend.js', 'assets/guide-homeware-dark.jpg', 'assets/guide-editorial-dark.jpg', 'assets/guide-packaging-dark.jpg', 'guides/email-automation-en.html', 'guides/email-automation-ar.html', 'assets/email-marketing-overview.mp4'];
 // Only generated public output is replaced. Source, drafts and user images are untouched.
 fs.rmSync(output, { recursive: true, force: true });

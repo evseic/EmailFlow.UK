@@ -412,7 +412,10 @@ header {
   display: flex;
 }
 
-.avatars span {
+.avatars img {
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -420,7 +423,7 @@ header {
   margin-left: -8px;
 }
 
-.avatars span:first-child {
+.avatars img:first-child {
   margin-left: 0;
 }
 
