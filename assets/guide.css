@@ -9,3 +9,15 @@
 .guide-book-kicker{color:#34d399}.guide-book-line{background:#14b8a6}.guide-book-flows span{border-color:#14b8a666;color:#9be6d5;background:#14b8a60c}.guide-book-flows i{background:#14b8a6}.guide-book-caption{color:#a6c6bd}.guide-book-bottom{background:#14b8a6;color:#06241f}.guide-book-brand img{background:#fff;border-radius:4px}
 /* Prevent automatic input zoom in iOS Safari. */
 .guide-dialog input[type=email]{font-size:16px}
+
+/* Keep the close cross on the physical left in both languages. */
+.guide-close{inset-inline-start:auto;inset-inline-end:auto;left:14px;right:auto;border:1px solid #ffffff26;cursor:pointer}
+.language-modal-open{overflow:hidden}
+.language-dialog{margin:auto;width:min(440px,calc(100vw - 32px));padding:36px 28px;border:1px solid #2b4941;border-radius:24px;background:#0e1417;color:#f2f7f4;text-align:center;font:16px/1.6 Manrope,Arial,sans-serif;box-sizing:border-box;max-height:calc(100dvh - 32px);overflow:auto;box-shadow:0 30px 100px #0008}
+.language-dialog::backdrop{background:#050a0cb8;backdrop-filter:blur(7px)}
+.language-dialog h2{margin:0;font-size:27px;line-height:1.3;color:#f2f7f4}
+.language-dialog p{margin:12px 0 28px;font:22px/1.6 Tahoma,Arial,sans-serif;color:#bdcbc5}
+.language-options{display:grid;gap:12px}
+.language-options button{display:block;width:100%;min-height:54px;padding:14px 20px;border:1px solid #3a6658;border-radius:12px;background:#123d36;color:#f4fff9;font:700 18px Arial,sans-serif;cursor:pointer}
+.language-options button:hover{background:#18594d}
+.language-options button:focus-visible{outline:2px solid #74e4c2;outline-offset:4px}

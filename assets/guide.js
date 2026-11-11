@@ -1,4 +1,10 @@
 (() => {
+  const session = {
+    get(key) { try { return sessionStorage.getItem(key); } catch { return null; } },
+    set(key, value) { try { sessionStorage.setItem(key, value); } catch {} }
+  };
+  const visitStarted=Number(session.get('emailflow-visit-start'))||Date.now();
+  session.set('emailflow-visit-start',String(visitStarted));
   const ar = document.documentElement.lang === 'ar';
   const text = ar ? {
     label:'دليل مجاني', title:'7 مسارات لبريد إلكتروني أكثر فاعلية', intro:'دليل عملي لمتجرك: مسارات مؤتمتة، وأوقات مقترحة للاختبار، و10 نماذج رسائل قابلة للتكييف.', email:'البريد الإلكتروني', send:'أرسل لي الدليل', sending:'جارٍ إرسال الطلب…', note:'نرسل الدليل الذي طلبته عبر Omnisend. لا يؤدي هذا الطلب إلى اشتراكك في رسائل تسويقية أخرى.', privacy:'سياسة الخصوصية (بالإنجليزية)', close:'إغلاق', success:'الدليل في طريقه إليك', details:'تم قبول طلبك. تفقد صندوق الوارد، ثم مجلد الرسائل غير المرغوب فيها أو العروض الترويجية.', error:'تعذّر قبول طلبك الآن. حاول مرة أخرى أو راسل info@emailflow.uk.', preview:'إرسال البريد غير متاح في هذه المعاينة المحلية بعد. يمكنك تجربة الطلب بعد إكمال ربط Omnisend.', invalid:'أدخل عنوان بريد إلكتروني صالحاً.', badge:'دليل EmailFlow', flows:'7 مسارات مؤتمتة', templates:'10 نماذج عملية', time:'أوقات إرسال للاختبار', thanks:'شكراً لك', to:'سنرسل الدليل إلى', small:'ابدأ بخطوة واضحة. طوّرها ببيانات متجرك.'
@@ -14,7 +20,43 @@
   document.body.append(launcher,dialog);
   const form=dialog.querySelector('form'),email=dialog.querySelector('#freeGuideEmail'),status=dialog.querySelector('.guide-status'),submit=dialog.querySelector('.guide-submit');
   let returnFocus;
-  launcher.addEventListener('click',()=>{returnFocus=document.activeElement;dialog.showModal();document.body.classList.add('guide-modal-open');email.focus();});
+  const openGuide=()=>{
+    if(dialog.open)return;
+    session.set('emailflow-guide-shown','yes');
+    returnFocus=document.activeElement;dialog.showModal();document.body.classList.add('guide-modal-open');
+    (form.hidden?dialog.querySelector('.guide-success'):email).focus();
+  };
+  launcher.addEventListener('click',openGuide);
+  const languageDialog=document.createElement('dialog');
+  languageDialog.className='language-dialog';
+  languageDialog.setAttribute('aria-labelledby','languageTitle');
+  languageDialog.innerHTML='<h2 id="languageTitle">Choose your language</h2><p lang="ar" dir="rtl">اختر لغتك</p><div class="language-options"><button type="button" lang="en" data-language="en">English →</button><button type="button" lang="ar" dir="rtl" data-language="ar">العربية ←</button></div>';
+  document.body.append(languageDialog);
+  function maybeShowGuide(){
+    if(Date.now()-visitStarted<30000||session.get('emailflow-guide-shown')||document.hidden||document.querySelector('dialog[open]'))return;
+    openGuide();
+  }
+  languageDialog.querySelectorAll('[data-language]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const language=button.dataset.language;
+      session.set('emailflow-language',language);
+      if((language==='ar')!==ar){
+        const alternate=document.querySelector(`link[rel="alternate"][hreflang^="${language}"]`);
+        const target=alternate?new URL(alternate.href).pathname:(language==='ar'?'/uae/ar/':'/');
+        location.assign(target);
+      }else languageDialog.close();
+    });
+  });
+  languageDialog.addEventListener('cancel',()=>session.set('emailflow-language',ar?'ar':'en'));
+  languageDialog.addEventListener('close',()=>{
+    document.body.classList.remove('language-modal-open');launcher.focus();maybeShowGuide();
+  });
+  if(!session.get('emailflow-language')){
+    languageDialog.showModal();document.body.classList.add('language-modal-open');
+  }
+  setTimeout(maybeShowGuide,Math.max(0,30000-(Date.now()-visitStarted)));
+  document.addEventListener('visibilitychange',maybeShowGuide);
+  document.addEventListener('close',maybeShowGuide,true);
   const close=()=>dialog.close();dialog.querySelector('.guide-close').addEventListener('click',close);dialog.querySelector('.guide-done').addEventListener('click',close);
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();}});
   dialog.addEventListener('close',()=>{document.body.classList.remove('guide-modal-open');returnFocus?.focus();});
