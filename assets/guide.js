@@ -27,32 +27,9 @@
     (form.hidden?dialog.querySelector('.guide-success'):email).focus();
   };
   launcher.addEventListener('click',openGuide);
-  const languageDialog=document.createElement('dialog');
-  languageDialog.className='language-dialog';
-  languageDialog.setAttribute('aria-labelledby','languageTitle');
-  languageDialog.innerHTML='<h2 id="languageTitle">Choose your language</h2><p lang="ar" dir="rtl">اختر لغتك</p><div class="language-options"><button type="button" lang="en" data-language="en">English →</button><button type="button" lang="ar" dir="rtl" data-language="ar">العربية ←</button></div>';
-  document.body.append(languageDialog);
   function maybeShowGuide(){
     if(Date.now()-visitStarted<30000||session.get('emailflow-guide-shown')||document.hidden||document.querySelector('dialog[open]'))return;
     openGuide();
-  }
-  languageDialog.querySelectorAll('[data-language]').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const language=button.dataset.language;
-      session.set('emailflow-language',language);
-      if((language==='ar')!==ar){
-        const alternate=document.querySelector(`link[rel="alternate"][hreflang^="${language}"]`);
-        const target=alternate?new URL(alternate.href).pathname:(language==='ar'?'/uae/ar/':'/');
-        location.assign(target);
-      }else languageDialog.close();
-    });
-  });
-  languageDialog.addEventListener('cancel',()=>session.set('emailflow-language',ar?'ar':'en'));
-  languageDialog.addEventListener('close',()=>{
-    document.body.classList.remove('language-modal-open');launcher.focus();maybeShowGuide();
-  });
-  if(!session.get('emailflow-language')){
-    languageDialog.showModal();document.body.classList.add('language-modal-open');
   }
   setTimeout(maybeShowGuide,Math.max(0,30000-(Date.now()-visitStarted)));
   document.addEventListener('visibilitychange',maybeShowGuide);
